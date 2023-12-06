@@ -355,6 +355,7 @@ function ImageWrapper({
             objectFit: "cover",
           }}
           loading="lazy"
+          alt={title}
         ></img>
         <Stack
           spacing={1}

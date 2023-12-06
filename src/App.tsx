@@ -181,6 +181,7 @@ export default function App() {
                 spacing={theme.spacing(3)}
               >
                 <IconButton
+                  title="Github"
                   onClick={() => {
                     window.open("https://github.com/NishLy");
                   }}
@@ -188,6 +189,7 @@ export default function App() {
                   <GitHub />
                 </IconButton>
                 <IconButton
+                  title="Github 2"
                   onClick={() => {
                     window.open("https://github.com/adhipaw");
                   }}
@@ -195,6 +197,7 @@ export default function App() {
                   <GitHub sx={{ color: "purple" }} />
                 </IconButton>
                 <IconButton
+                  title="Linkedin"
                   onClick={() => {
                     window.open(
                       "https://www.linkedin.com/in/adhi-pamungkas-wijayadi-7362a9283/"
@@ -204,6 +207,7 @@ export default function App() {
                   <LinkedIn />
                 </IconButton>
                 <IconButton
+                  title="Instagram"
                   onClick={() => {
                     window.open("https://www.instagram.com/adhipaaw_/");
                   }}
@@ -224,12 +228,15 @@ export default function App() {
             >
               <Stack width="100%" height="100%" direction="row">
                 <img
-                  src=""
+                  src="./images/me.jpg"
                   style={{
                     flexBasis: "1/2",
                     objectFit: "cover",
-                    width: "50vw",
+                    width: "40vw",
+                    height: "100vh",
+                    flexShrink: 0,
                   }}
+                  alt="me"
                 />
                 <Stack
                   padding={10}
@@ -253,7 +260,7 @@ export default function App() {
                   </Container>
                   <Typography
                     fontWeight={800}
-                    variant="h3"
+                    variant="h2"
                     sx={{ height: "2rem" }}
                   >
                     <TypeWriter
