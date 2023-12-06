@@ -1,0 +1,44 @@
+/* .animate::after {
+  content: "|";
+  animation: caret 1s steps(1) infinite;
+} */
+.animate {
+  display: flex;
+}
+.animate > span {
+  white-space: pre;
+  display: inline-block;
+  animation: charIn 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes charIn {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
