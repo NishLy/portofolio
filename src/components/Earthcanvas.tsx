@@ -3,10 +3,6 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { MutableRefObject, Suspense, useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-import nebula from "../assets/models/space.glb?url";
-import iss from "../assets/models/iss.glb?url";
-import earthModel from "../assets/models/earth/scene.gltf?url";
-
 import React from "react";
 import {
   DepthOfField,
@@ -100,7 +96,7 @@ export default function ThreeCanvas() {
 
 function Earth() {
   const ref = useRef<Mesh | null>(null);
-  const model = useGLTF(earthModel);
+  const model = useGLTF("./models/earth/scene.gltf");
 
   useEffect(() => {
     document.body.onscroll = function (e) {
@@ -151,7 +147,7 @@ function Earth() {
 }
 
 function ISS() {
-  const model = useGLTF(iss);
+  const model = useGLTF("./models/iss.glb");
 
   return (
     <mesh rotation={[4.5, 4.9, 3.2]} position={[10, 5, -10]}>
@@ -163,7 +159,7 @@ function ISS() {
 }
 
 export function Skybox() {
-  const model = useGLTF(nebula);
+  const model = useGLTF("./models/space.glb");
   return (
     <mesh rotation={[0, 2.5, 0]} scale={[80, 80, 80]}>
       <hemisphereLight intensity={0.35} groundColor="black" />

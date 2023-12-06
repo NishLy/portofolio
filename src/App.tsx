@@ -180,13 +180,34 @@ export default function App() {
                 direction="row"
                 spacing={theme.spacing(3)}
               >
-                <IconButton>
+                <IconButton
+                  onClick={() => {
+                    window.open("https://github.com/NishLy");
+                  }}
+                >
                   <GitHub />
                 </IconButton>
-                <IconButton>
+                <IconButton
+                  onClick={() => {
+                    window.open("https://github.com/adhipaw");
+                  }}
+                >
+                  <GitHub sx={{ color: "purple" }} />
+                </IconButton>
+                <IconButton
+                  onClick={() => {
+                    window.open(
+                      "https://www.linkedin.com/in/adhi-pamungkas-wijayadi-7362a9283/"
+                    );
+                  }}
+                >
                   <LinkedIn />
                 </IconButton>
-                <IconButton>
+                <IconButton
+                  onClick={() => {
+                    window.open("https://www.instagram.com/adhipaaw_/");
+                  }}
+                >
                   <Instagram />
                 </IconButton>
               </Stack>
