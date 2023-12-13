@@ -31,6 +31,13 @@ const Loading = () => {
       <Typography variant="body1" marginTop="10">
         *this procces might take while depending on your internet connection
       </Typography>
+      <Typography variant="body1" marginTop="10">
+        *this pages is build with react-three-fiber and threejs (heavy) please
+        use decent device to view this page
+      </Typography>
+      <Typography variant="body1" marginTop="10">
+        *this page is not optimized for mobile devices
+      </Typography>
     </Stack>
   );
 };
