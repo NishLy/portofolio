@@ -1,33 +1,30 @@
 import {
+  Box,
   Button,
   Container,
   Grid,
   IconButton,
-  Link,
   Stack,
   TextField,
   ThemeProvider,
   Typography,
   createTheme,
 } from "@mui/material";
-import ThreeCanvas from "./components/Earthcanvas";
 import { EmailRounded, GitHub, Instagram, LinkedIn } from "@mui/icons-material";
 import { useEffect, useState } from "react";
-import WelcomeText from "./components/Title";
+import WelcomeText from "./components/welcome/welcome";
 import Coursel from "./components/Coursel/Coursel";
 import TypeWriter from "./components/Typewritter/TypeWriter";
-import { useProgress } from "@react-three/drei";
 import Loading from "./components/loading/loading";
 import "./App.css";
+import Background from "./components/background/background";
+import Navbar from "./components/navbar/navbar";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
-  const progress = useProgress();
   useEffect(() => {
-    if (progress.progress === 100) {
-      setLoaded(true);
-    }
-  }, [progress.progress]);
+    setLoaded(true);
+  }, []);
 
   const theme = createTheme({
     palette: {
@@ -39,7 +36,7 @@ export default function App() {
   });
   return (
     <>
-      <ThreeCanvas />
+      <Background />
       {!loaded && <Loading />}
       {loaded && (
         <>
@@ -48,126 +45,15 @@ export default function App() {
             style={{ backgroundColor: theme.palette.background.default }}
           ></div>
           <ThemeProvider theme={theme}>
-            <div
+            <Navbar />
+            <Box
               id="home"
-              style={{
+              sx={{
                 width: "100vw",
                 height: "100vh",
               }}
             >
-              <Grid
-                container
-                sx={{
-                  width: "100%",
-                  position: "relative",
-                  padding: theme.spacing(15),
-                }}
-                gap={theme.spacing(5)}
-              >
-                <Stack
-                  width="100vw"
-                  height="4rem"
-                  direction="row"
-                  component="header"
-                  position="fixed"
-                  zIndex={1000}
-                  padding={theme.spacing(15)}
-                  boxSizing={"border-box"}
-                  paddingTop={5}
-                  top={0}
-                  left={0}
-                  justifyContent="space-between"
-                  sx={{}}
-                >
-                  <Stack direction="row" spacing={5}>
-                    <Link
-                      href="/#home"
-                      variant="h1"
-                      padding={0}
-                      sx={{
-                        textDecoration: "none",
-                      }}
-                      color={theme.palette.text.primary}
-                    >
-                      <Typography variant="h6" padding={".5rem 1rem"}>
-                        Home
-                      </Typography>
-                    </Link>
-                    <Link
-                      sx={{
-                        textDecoration: "none",
-                      }}
-                      href="/#about"
-                      variant="h1"
-                      color={theme.palette.text.primary}
-                    >
-                      <Typography variant="h6" padding={".5rem 1rem"}>
-                        About
-                      </Typography>
-                    </Link>
-                    <Link
-                      sx={{
-                        textDecoration: "none",
-                      }}
-                      href="/#experiences"
-                      variant="h1"
-                      color={theme.palette.text.primary}
-                    >
-                      <Typography variant="h6" padding={".5rem 1rem"}>
-                        Experiences
-                      </Typography>
-                    </Link>
-                    <Link
-                      sx={{
-                        textDecoration: "none",
-                      }}
-                      href="/#contact"
-                      variant="h1"
-                      color={theme.palette.text.primary}
-                    >
-                      <Typography variant="h6" padding={".5rem 1rem"}>
-                        Contact
-                      </Typography>
-                    </Link>
-                  </Stack>
-                  <table
-                    style={{
-                      color: theme.palette.text.primary,
-                      textDecoration: "none",
-                      textTransform: "uppercase",
-                      fontSize: "1rem",
-                      fontWeight: 700,
-                    }}
-                  >
-                    <tbody>
-                      <tr>
-                        <td>P</td>
-                        <td>o</td>
-                        <td>R</td>
-                      </tr>
-                      <tr>
-                        <td>t</td>
-                        <td>f</td>
-                        <td>o</td>
-                      </tr>
-                      <tr>
-                        <td>l</td>
-                        <td>i</td>
-                        <td>o</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </Stack>
-                <Container
-                  sx={{
-                    maxWidth: "20rem",
-                    margin: "0 !important",
-                    padding: "0 !important",
-                  }}
-                >
-                  <WelcomeText />
-                </Container>
-              </Grid>
+              <WelcomeText />
               <Stack
                 sx={{
                   position: "absolute",
@@ -215,91 +101,90 @@ export default function App() {
                   <Instagram />
                 </IconButton>
               </Stack>
-            </div>
-            <div
+            </Box>
+            <Box
               id="about"
               style={{
                 width: "100vw",
-                height: "100vh",
-                backgroundColor: theme.palette.background.default,
                 color: theme.palette.text.primary,
-                borderBottom: "1px solid #fff",
+                borderBottom: "1px solid #80008050",
               }}
             >
-              <Stack width="100%" height="100%" direction="row">
-                <img
-                  src="./images/me.jpg"
-                  style={{
-                    flexBasis: "1/2",
-                    objectFit: "cover",
-                    width: "40vw",
-                    height: "100vh",
-                    flexShrink: 0,
-                  }}
-                  alt="me"
-                />
-                <Stack
-                  padding={10}
-                  justifyContent="center"
-                  spacing={5}
-                  boxSizing="border-box"
-                  height="100%"
-                  width="100%"
-                  flexBasis="1/2"
-                >
-                  <Container
-                    sx={{
-                      width: "fit-content",
-                      borderRadius: "1rem",
-                      border: "1px solid purple",
-                      padding: ".3rem .5rem",
-                      backgroundColor: "#80008030",
+              <Grid container width="100%" height="100%" direction="row">
+                <Grid item xs={12} md={6}>
+                  <img
+                    src="./images/me.jpg"
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "100vh",
+                      flexShrink: 0,
                     }}
+                    alt="me"
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Stack
+                    padding={15}
+                    justifyContent="center"
+                    spacing={5}
+                    boxSizing="border-box"
+                    height="100%"
+                    flexBasis="1/2"
                   >
-                    About
-                  </Container>
-                  <Typography
-                    fontWeight={800}
-                    variant="h2"
-                    sx={{ height: "2rem" }}
-                  >
-                    <TypeWriter
-                      sequence={[
-                        { text: "Hello, I'am Adhi", waitTime: 5000 },
-                        { text: "Web Developer", waitTime: 5000 },
-                        { text: "Flutter Developer", waitTime: 5000 },
-                        { text: "Problem Solver", waitTime: 5000 },
-                      ]}
-                      speed={100}
-                      repeat={Infinity}
-                    />
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: theme.palette.text.secondary,
-                    }}
-                  >
-                    Enthusiastic and driven undergraduate student at STIMIK
-                    Widya Pratama with a passion for full-stack website
-                    development.
-                    <b style={{ color: theme.palette.text.primary }}>
-                      {" "}
-                      Possesses a strong foundation in JavaScript and its
-                      ecosystem, including front-end frameworks like React and
-                      back-end technologies like Node.js.
-                    </b>{" "}
-                    Eager to contribute technical expertise and problem-solving
-                    skills to dynamic and innovative projects.
-                  </Typography>
-                </Stack>
-              </Stack>
-            </div>
-            <div
+                    <Container
+                      sx={{
+                        width: "fit-content",
+                        borderRadius: "1rem",
+                        border: "1px solid purple",
+                        padding: ".3rem .5rem",
+                        backgroundColor: "#80008030",
+                      }}
+                    >
+                      About
+                    </Container>
+                    <Typography
+                      fontWeight={800}
+                      variant="h2"
+                      sx={{ height: "2rem" }}
+                    >
+                      <TypeWriter
+                        sequence={[
+                          { text: "Hello, I'am Adhi", waitTime: 5000 },
+                          { text: "Web Developer", waitTime: 5000 },
+                          { text: "Flutter Developer", waitTime: 5000 },
+                          { text: "Problem Solver", waitTime: 5000 },
+                        ]}
+                        speed={100}
+                        repeat={Infinity}
+                      />
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: theme.palette.text.secondary,
+                      }}
+                    >
+                      Enthusiastic and driven undergraduate student at STIMIK
+                      Widya Pratama with a passion for full-stack website
+                      development.
+                      <b style={{ color: theme.palette.text.primary }}>
+                        {" "}
+                        Possesses a strong foundation in JavaScript and its
+                        ecosystem, including front-end frameworks like React and
+                        back-end technologies like Node.js.
+                      </b>{" "}
+                      Eager to contribute technical expertise and
+                      problem-solving skills to dynamic and innovative projects.
+                    </Typography>
+                  </Stack>
+                </Grid>
+              </Grid>
+            </Box>
+            <Box
               id="experiences"
-              style={{
+              sx={{
                 width: "100vw",
-                height: "100vh",
                 color: theme.palette.text.primary,
               }}
             >
@@ -307,6 +192,8 @@ export default function App() {
                 justifyContent="center"
                 alignItems="center"
                 spacing={2}
+                padding={theme.spacing(5)}
+                paddingTop={theme.spacing(12)}
                 height="100%"
               >
                 <Container
@@ -314,14 +201,14 @@ export default function App() {
                     width: "fit-content",
                     borderRadius: "1rem",
                     border: "1px solid purple",
-                    padding: theme.spacing(1),
+                    padding: ".3rem .5rem",
                     backgroundColor: "#80008030",
                   }}
                 >
                   Experiences
                 </Container>
-                <Typography fontWeight={800} variant="h3">
-                  Dig Deeper Into My Experiences
+                <Typography fontWeight={800} variant="h5">
+                  My Experiences
                 </Typography>
 
                 <Coursel
@@ -385,97 +272,102 @@ export default function App() {
                   ]}
                 />
               </Stack>
-            </div>
-            <div
+            </Box>
+            <Box
               id="contact"
-              style={{
+              sx={{
                 width: "100vw",
-                height: "100vh",
                 backgroundColor: theme.palette.background.default,
                 color: theme.palette.text.primary,
               }}
             >
-              <Stack
+              <Grid
+                container
                 padding={theme.spacing(15)}
                 boxSizing="border-box"
                 width="100%"
                 height="100%"
-                justifyContent="space-around"
+                justifyContent="center"
+                alignContent="center"
                 alignItems="center"
                 direction="row"
+                minHeight={"100vh"}
               >
-                <Stack
-                  padding={theme.spacing(10)}
-                  alignItems="flex-start"
-                  spacing={2}
-                  width="50%"
-                >
-                  <Container
-                    sx={{
-                      width: "fit-content",
-                      borderRadius: "1rem",
-                      border: "1px solid purple",
-                      padding: ".3rem .5rem",
-                      backgroundColor: "#80008030",
-                      margin: ".5rem",
-                    }}
+                <Grid item xs={12} md={6}>
+                  <Stack
+                    spacing={2}
+                    width="50%"
+                    justifyContent="flex-start"
+                    alignItems="flex-start"
                   >
-                    Contact
-                  </Container>
-                  <Typography variant="h2" fontWeight={800}>
-                    Get problem to solve?
-                  </Typography>
-                  <Typography color={theme.palette.text.secondary}>
-                    I'd love to hear from you! Please feel free to reach out
-                    using the form below or by sending an email to
-                    <b
-                      style={{
-                        color: theme.palette.text.primary,
+                    <Container
+                      sx={{
+                        width: "fit-content",
+                        borderRadius: "1rem",
+                        border: "1px solid purple",
+                        padding: ".3rem .5rem",
+                        backgroundColor: "#80008030",
                       }}
                     >
-                      {" "}
-                      adhipamungkaswijayadi@gmail.com.
-                    </b>
-                  </Typography>
-                </Stack>
-                <form
-                  style={{
-                    width: "50%",
-                  }}
-                  action="mailto:adhipamungkaswijayadi@gmail.com"
-                  method="post"
-                  encType="text/plain"
-                >
-                  <Stack padding={theme.spacing(10)} spacing={5}>
-                    <TextField name="name" label="Name" fullWidth />
-                    <TextField name="email" label="Email" fullWidth />
-                    <TextField
-                      name="message"
-                      label="Message"
-                      fullWidth
-                      multiline
-                      rows={2}
-                    />
-                    <Stack direction="row" justifyContent="space-between">
-                      <Stack direction="row" gap={1}>
-                        <EmailRounded /> adhipamungkaswijayadi@gmail.com
-                      </Stack>
-                      <Button
-                        type="submit"
-                        sx={{
-                          padding: theme.spacing(1),
-                          backgroundColor: "purple",
-                          color: "white",
+                      Contact
+                    </Container>
+                    <Typography variant="h2" fontWeight={800}>
+                      Get problem to solve?
+                    </Typography>
+                    <Typography color={theme.palette.text.secondary}>
+                      I'd love to hear from you! Please feel free to reach out
+                      using the form below or by sending an email to
+                      <b
+                        style={{
+                          color: theme.palette.text.primary,
                         }}
-                        variant="contained"
                       >
-                        Contact me
-                      </Button>
-                    </Stack>
+                        {" "}
+                        adhipamungkaswijayadi@gmail.com.
+                      </b>
+                    </Typography>
                   </Stack>
-                </form>
-              </Stack>
-            </div>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <form
+                    style={{
+                      width: "100%",
+                    }}
+                    action="mailto:adhipamungkaswijayadi@gmail.com"
+                    method="post"
+                    encType="text/plain"
+                  >
+                    <Stack spacing={5}>
+                      <TextField name="name" label="Name" fullWidth />
+                      <TextField name="email" label="Email" fullWidth />
+                      <TextField
+                        name="message"
+                        label="Message"
+                        fullWidth
+                        multiline
+                        rows={2}
+                      />
+                      <Stack direction="row" justifyContent="space-between">
+                        <Stack direction="row" gap={1}>
+                          <EmailRounded /> adhipamungkaswijayadi@gmail.com
+                        </Stack>
+                        <Button
+                          type="submit"
+                          sx={{
+                            padding: theme.spacing(1),
+                            backgroundColor: "purple",
+                            color: "white",
+                          }}
+                          variant="contained"
+                        >
+                          Contact me
+                        </Button>
+                      </Stack>
+                    </Stack>
+                  </form>
+                </Grid>
+              </Grid>
+            </Box>
           </ThemeProvider>
         </>
       )}

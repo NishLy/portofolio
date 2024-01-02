@@ -208,7 +208,6 @@ to scroll the `ref` element horizontally based on the mouse movement. */
       >
         <Select
           size="small"
-          sx={{ width: "20rem" }}
           value={selectedCategory}
           onChange={handleChange}
           input={<OutlinedInput label="Tag" />}
@@ -330,7 +329,7 @@ function ImageWrapper({
       <div
         style={{
           padding: "0 !important",
-          width: "22em",
+          width: "18rem",
           margin: "0 !important",
           aspectRatio: "10/16",
           overflowX: "clip",
