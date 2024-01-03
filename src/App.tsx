@@ -19,6 +19,7 @@ import Loading from "./components/loading/loading";
 import "./App.css";
 import Background from "./components/background/background";
 import Navbar from "./components/navbar/navbar";
+import { Matrix } from "./components/matrix/matrix";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
@@ -278,106 +279,115 @@ export default function App() {
                 />
               </Stack>
             </Box>
-            <Box
-              id="contact"
-              sx={{
+            <Matrix
+              style={{
                 width: "100vw",
-                backgroundColor: theme.palette.background.default,
-                color: theme.palette.text.primary,
+                height: "100vh",
               }}
+              color="#800080"
+              fontSize={18}
             >
-              <Grid
-                container
-                padding={theme.spacing(5)}
-                paddingTop={theme.spacing(15)}
-                boxSizing="border-box"
-                alignItems="center"
-                justifyContent="center"
-                direction="row"
-                minHeight={"100vh"}
+              <Box
+                id="contact"
+                sx={{
+                  width: "100vw",
+                  // backgroundColor: theme.palette.background.default,
+                  color: theme.palette.text.primary,
+                }}
               >
-                <Grid item xs={12} lg={5}>
-                  <Stack
-                    spacing={2}
-                    width="100%"
-                    height="100%"
-                    justifyContent="flex-start"
-                    alignItems="flex-start"
-                  >
-                    <Container
-                      sx={{
-                        width: "fit-content",
-                        borderRadius: "1rem",
-                        border: "2px solid var(--accent-color)",
-                        padding: ".2rem .5rem",
-                        backgroundColor: "#80008030",
-                      }}
+                <Grid
+                  container
+                  padding={theme.spacing(5)}
+                  paddingTop={theme.spacing(15)}
+                  boxSizing="border-box"
+                  alignItems="center"
+                  justifyContent="center"
+                  direction="row"
+                  minHeight={"100vh"}
+                >
+                  <Grid item xs={12} lg={5}>
+                    <Stack
+                      spacing={2}
+                      width="100%"
+                      height="100%"
+                      justifyContent="flex-start"
+                      alignItems="flex-start"
                     >
-                      Contact
-                    </Container>
-                    <Typography variant="h2" fontWeight={800}>
-                      Get problem to solve?
-                    </Typography>
-                    <Typography color={theme.palette.text.secondary}>
-                      I'd love to hear from you! Please feel free to reach out
-                      using the form below or by sending an email to
-                      <b
-                        style={{
-                          color: theme.palette.text.primary,
+                      <Container
+                        sx={{
+                          width: "fit-content",
+                          borderRadius: "1rem",
+                          border: "2px solid var(--accent-color)",
+                          padding: ".2rem .5rem",
+                          backgroundColor: "#80008030",
                         }}
                       >
-                        {" "}
-                        adhipamungkaswijayadi@gmail.com.
-                      </b>
-                    </Typography>
-                    <Box height="12rem"></Box>
-                  </Stack>
-                </Grid>
-                <Grid item xs={12} lg={6}>
-                  <form
-                    style={{
-                      width: "100%",
-                    }}
-                    action="mailto:adhipamungkaswijayadi@gmail.com"
-                    method="post"
-                    encType="text/plain"
-                  >
-                    <Stack spacing={5} width="100%">
-                      <TextField name="name" label="Name" fullWidth />
-                      <TextField name="email" label="Email" fullWidth />
-                      <TextField
-                        name="message"
-                        label="Message"
-                        fullWidth
-                        multiline
-                        rows={2}
-                      />
-                      <Stack
-                        flexWrap="wrap"
-                        direction="row"
-                        gap={2}
-                        justifyContent="space-between"
-                      >
-                        <Stack direction="row" gap={1}>
-                          <EmailRounded /> adhipamungkaswijayadi@gmail.com
-                        </Stack>
-                        <Button
-                          type="submit"
-                          sx={{
-                            padding: theme.spacing(1),
-                            backgroundColor: "purple",
-                            color: "white",
+                        Contact
+                      </Container>
+                      <Typography variant="h2" fontWeight={800}>
+                        Get problem to solve?
+                      </Typography>
+                      <Typography color={theme.palette.text.secondary}>
+                        I'd love to hear from you! Please feel free to reach out
+                        using the form below or by sending an email to
+                        <b
+                          style={{
+                            color: theme.palette.text.primary,
                           }}
-                          variant="contained"
                         >
-                          Contact me
-                        </Button>
-                      </Stack>
+                          {" "}
+                          adhipamungkaswijayadi@gmail.com.
+                        </b>
+                      </Typography>
+                      <Box height="12rem"></Box>
                     </Stack>
-                  </form>
+                  </Grid>
+                  <Grid item xs={12} lg={6}>
+                    <form
+                      style={{
+                        width: "100%",
+                      }}
+                      action="mailto:adhipamungkaswijayadi@gmail.com"
+                      method="post"
+                      encType="text/plain"
+                    >
+                      <Stack spacing={5} width="100%">
+                        <TextField name="name" label="Name" fullWidth />
+                        <TextField name="email" label="Email" fullWidth />
+                        <TextField
+                          name="message"
+                          label="Message"
+                          fullWidth
+                          multiline
+                          rows={2}
+                        />
+                        <Stack
+                          flexWrap="wrap"
+                          direction="row"
+                          gap={2}
+                          justifyContent="space-between"
+                        >
+                          <Stack direction="row" gap={1}>
+                            <EmailRounded /> adhipamungkaswijayadi@gmail.com
+                          </Stack>
+                          <Button
+                            type="submit"
+                            sx={{
+                              padding: theme.spacing(1),
+                              backgroundColor: "purple",
+                              color: "white",
+                            }}
+                            variant="contained"
+                          >
+                            Contact me
+                          </Button>
+                        </Stack>
+                      </Stack>
+                    </form>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Box>
+              </Box>
+            </Matrix>
           </ThemeProvider>
         </>
       )}
