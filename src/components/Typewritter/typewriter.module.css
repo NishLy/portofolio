@@ -4,6 +4,7 @@
 } */
 .animate {
   display: flex;
+  font-size: inherit;
 }
 .animate > span {
   white-space: pre;

@@ -11,7 +11,15 @@ const WelcomeText = () => {
         alignItems="center"
       >
         <Typography
+          sx={{
+            display: "inline-block",
+            fontSize: {
+              xs: "52px",
+              lg: "100px",
+            },
+          }}
           variant="h1"
+          textAlign="center"
           component="div"
           gutterBottom
           color={theme.palette.text.primary}

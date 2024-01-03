@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Typewritter.css";
+import style from "./typewriter.module.css";
 
 interface TypeWriterProps {
   sequence: { text: string; waitTime: number }[];
@@ -115,9 +115,9 @@ const TypeWriter = (
   }
 
   return wrapper === "div" ? (
-    <div className="animate"> {text} </div>
+    <div className={style["animate"]}> {text} </div>
   ) : (
-    <span className="animate">
+    <span className={style["animate"]}>
       {getWrapper(text).map((c, i) => (
         <span key={c + i}>{c}</span>
       ))}

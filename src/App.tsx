@@ -46,23 +46,30 @@ export default function App() {
           ></div>
           <ThemeProvider theme={theme}>
             <Navbar />
-            <Box
+            <Grid
+              container
               id="home"
+              alignItems="center"
+              justifyContent="center"
+              padding={2}
               sx={{
                 width: "100vw",
                 height: "100vh",
+                padding: theme.spacing(2),
               }}
             >
-              <WelcomeText />
+              <Grid item xs={12}>
+                <WelcomeText />
+              </Grid>
               <Stack
                 sx={{
                   position: "absolute",
                   bottom: 0,
                   left: 0,
                   padding: theme.spacing(5),
-                  paddingRight: theme.spacing(15) + " !important",
-                  paddingLeft: theme.spacing(15) + " !important",
+                  width: "100%",
                 }}
+                justifyContent="center"
                 direction="row"
                 spacing={theme.spacing(3)}
               >
@@ -101,7 +108,7 @@ export default function App() {
                   <Instagram />
                 </IconButton>
               </Stack>
-            </Box>
+            </Grid>
             <Box
               id="about"
               style={{
@@ -125,7 +132,7 @@ export default function App() {
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <Stack
-                    padding={15}
+                    padding={5}
                     justifyContent="center"
                     spacing={5}
                     boxSizing="border-box"
@@ -136,23 +143,20 @@ export default function App() {
                       sx={{
                         width: "fit-content",
                         borderRadius: "1rem",
-                        border: "1px solid purple",
-                        padding: ".3rem .5rem",
+                        border: "2px solid var(--accent-color)",
+                        padding: ".2rem .5rem",
                         backgroundColor: "#80008030",
                       }}
                     >
                       About
                     </Container>
-                    <Typography
-                      fontWeight={800}
-                      variant="h2"
-                      sx={{ height: "2rem" }}
-                    >
+                    <Typography fontWeight={800} variant="h3" height="2rem">
                       <TypeWriter
                         sequence={[
                           { text: "Hello, I'am Adhi", waitTime: 5000 },
-                          { text: "Web Developer", waitTime: 5000 },
-                          { text: "Flutter Developer", waitTime: 5000 },
+                          { text: "Web Dev", waitTime: 5000 },
+                          { text: "Flutter Dev", waitTime: 5000 },
+                          { text: "Fullstack Dev", waitTime: 5000 },
                           { text: "Problem Solver", waitTime: 5000 },
                         ]}
                         speed={100}
@@ -185,6 +189,7 @@ export default function App() {
               id="experiences"
               sx={{
                 width: "100vw",
+                minHeight: "100vh",
                 color: theme.palette.text.primary,
               }}
             >
@@ -193,15 +198,15 @@ export default function App() {
                 alignItems="center"
                 spacing={2}
                 padding={theme.spacing(5)}
-                paddingTop={theme.spacing(12)}
+                paddingTop={theme.spacing(15)}
                 height="100%"
               >
                 <Container
                   sx={{
                     width: "fit-content",
                     borderRadius: "1rem",
-                    border: "1px solid purple",
-                    padding: ".3rem .5rem",
+                    border: "2px solid var(--accent-color)",
+                    padding: ".2rem .5rem",
                     backgroundColor: "#80008030",
                   }}
                 >
@@ -283,20 +288,19 @@ export default function App() {
             >
               <Grid
                 container
-                padding={theme.spacing(15)}
+                padding={theme.spacing(5)}
+                paddingTop={theme.spacing(15)}
                 boxSizing="border-box"
-                width="100%"
-                height="100%"
-                justifyContent="center"
-                alignContent="center"
                 alignItems="center"
+                justifyContent="center"
                 direction="row"
                 minHeight={"100vh"}
               >
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} lg={5}>
                   <Stack
                     spacing={2}
-                    width="50%"
+                    width="100%"
+                    height="100%"
                     justifyContent="flex-start"
                     alignItems="flex-start"
                   >
@@ -304,8 +308,8 @@ export default function App() {
                       sx={{
                         width: "fit-content",
                         borderRadius: "1rem",
-                        border: "1px solid purple",
-                        padding: ".3rem .5rem",
+                        border: "2px solid var(--accent-color)",
+                        padding: ".2rem .5rem",
                         backgroundColor: "#80008030",
                       }}
                     >
@@ -326,9 +330,10 @@ export default function App() {
                         adhipamungkaswijayadi@gmail.com.
                       </b>
                     </Typography>
+                    <Box height="12rem"></Box>
                   </Stack>
                 </Grid>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} lg={6}>
                   <form
                     style={{
                       width: "100%",
@@ -337,7 +342,7 @@ export default function App() {
                     method="post"
                     encType="text/plain"
                   >
-                    <Stack spacing={5}>
+                    <Stack spacing={5} width="100%">
                       <TextField name="name" label="Name" fullWidth />
                       <TextField name="email" label="Email" fullWidth />
                       <TextField
@@ -347,7 +352,12 @@ export default function App() {
                         multiline
                         rows={2}
                       />
-                      <Stack direction="row" justifyContent="space-between">
+                      <Stack
+                        flexWrap="wrap"
+                        direction="row"
+                        gap={2}
+                        justifyContent="space-between"
+                      >
                         <Stack direction="row" gap={1}>
                           <EmailRounded /> adhipamungkaswijayadi@gmail.com
                         </Stack>
