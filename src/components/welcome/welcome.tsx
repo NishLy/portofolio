@@ -1,14 +1,21 @@
 import { Stack, Typography, useTheme } from "@mui/material";
+// import style from "./welcome.module.css";
 
 const WelcomeText = () => {
   const theme = useTheme();
   return (
     <>
       <Stack
+        // position="fixed"
+        // top={0}
+        // left={0}
+        // zIndex={-100}
+        // margin={0}
         width="100%"
         height="100%"
         justifyContent="center"
         alignItems="center"
+        // className={style["welcome"]}
       >
         <Typography
           sx={{

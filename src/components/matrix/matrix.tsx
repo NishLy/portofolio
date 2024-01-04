@@ -1,7 +1,9 @@
+import { Box } from "@mui/material";
 import { useEffect, useRef } from "react";
 
 type MatrixProps = {
   color?: string;
+  background?: string;
   fontSize?: number;
   font?: string;
   speed?: number;
@@ -29,12 +31,14 @@ export const Matrix = (props: MatrixProps) => {
       drops[i] = 1;
     }
 
+    console.log(window.innerWidth, window.innerHeight);
+
     canvasEl.current.width = window.innerWidth;
     canvasEl.current.height = window.innerHeight;
 
     function draw() {
       ctx!.font = `${fontSize}px ${props.font ?? "monospace"}`;
-      ctx!.fillStyle = "rgba(0, 0, 0, .1)";
+      ctx!.fillStyle = props.background ?? "rgba(0, 0, 0, .1)";
       ctx!.fillRect(0, 0, canvasEl.current!.width, canvasEl.current!.height);
       for (let i = 0; i < drops.length; i++) {
         const text = letters[Math.floor(Math.random() * letters.length)];
@@ -67,15 +71,16 @@ export const Matrix = (props: MatrixProps) => {
 
   return (
     <>
-      <canvas
-        style={{
-          position: "absolute",
-          zIndex: -1,
-          ...props.style,
-        }}
-        ref={canvasEl}
-      ></canvas>
-      {props.children}
+      <Box sx={props.style}>
+        <canvas
+          style={{
+            position: "absolute",
+            zIndex: -1,
+          }}
+          ref={canvasEl}
+        ></canvas>
+        {props.children}
+      </Box>
     </>
   );
 };

@@ -2,10 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   --background-color: #060918;
-  --accent-color: #392467;
-  --accent-color-medium: #a367b1;
+  --accent-color: #800080;
+  --accent-color-medium: #b803b8;
 }
 
 body {

@@ -10,6 +10,7 @@ import {
   OutlinedInput,
   IconButton,
   Link,
+  SxProps,
 } from "@mui/material";
 import {
   createContext,
@@ -29,6 +30,7 @@ interface CourselProps {
     category: string[];
     thumbnail: string;
   }[];
+  selectSx?: SxProps;
 }
 
 const ScrollCourselContext = createContext<{
@@ -36,7 +38,7 @@ const ScrollCourselContext = createContext<{
   scrollParallax: number;
 }>({ left: 0, scrollParallax: 0 });
 
-const Coursel = ({ data }: CourselProps) => {
+const Coursel = ({ data, selectSx }: CourselProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const [scrollProgress, setScrollProgress] = useState<number>(0);
@@ -212,6 +214,7 @@ to scroll the `ref` element horizontally based on the mouse movement. */
           onChange={handleChange}
           input={<OutlinedInput label="Tag" />}
           renderValue={(selected) => selected.join(", ")}
+          sx={selectSx}
         >
           {categories.map((category: string) => (
             <MenuItem key={category} value={category}>
