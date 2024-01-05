@@ -5,6 +5,7 @@ body {
 
 .slider-thumb::before {
   position: fixed;
+  z-index: -100;
   content: "";
   left: 30%;
   top: 20%;
@@ -15,7 +16,6 @@ body {
   will-change: border-radius, transform, opacity;
   animation: sliderShape 5s linear infinite;
   display: block;
-  z-index: -1;
   -webkit-animation: sliderShape 5s linear infinite;
 }
 @keyframes sliderShape {

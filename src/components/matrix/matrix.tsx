@@ -31,11 +31,9 @@ export const Matrix = (props: MatrixProps) => {
       drops[i] = 1;
     }
 
-    canvasEl.current.width = 1920;
-    canvasEl.current.height = 1080;
-
     function draw() {
       if (!canvasEl.current) return;
+
       ctx!.font = `${fontSize}px ${props.font ?? "monospace"}`;
       ctx!.fillStyle = props.background ?? "rgba(0, 0, 0, .1)";
       ctx!.fillRect(0, 0, canvasEl.current!.width, canvasEl.current!.height);
@@ -65,8 +63,14 @@ export const Matrix = (props: MatrixProps) => {
     });
 
     observer.observe(canvasEl.current!);
+    // observer.observe(document.querySelector("#root")!);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    canvasEl.current!.width = window.innerWidth;
+    canvasEl.current!.height = window.innerHeight;
+  }, [canvasEl]);
 
   return (
     <>
