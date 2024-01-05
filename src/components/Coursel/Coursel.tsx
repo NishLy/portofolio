@@ -56,20 +56,24 @@ const Coursel = ({ data, selectSx }: CourselProps) => {
     let velX = 0;
     let prefLeft = 0;
 
-    /* This code snippet adds an event listener to the `mousedown` event on the `ref` element. When the
-user presses the mouse button down on the element, the event listener function is called. */
-    ref.current?.addEventListener("mousedown", (e) => {
+    const downEventHandler = (e: MouseEvent | TouchEvent) => {
       e.preventDefault();
       if (!ref.current) return;
-      velX = e.pageX - ref.current.offsetLeft;
+      velX =
+        e instanceof TouchEvent
+          ? e.touches[0].pageX - ref.current.offsetLeft
+          : (e as MouseEvent).pageX - ref.current.offsetLeft;
       document.body.style.cursor = "grabbing";
       isMouseDown = true;
-    });
+    };
 
-    ref.current?.addEventListener("mousemove", (e) => {
+    const moveEventHandler = (e: MouseEvent | TouchEvent) => {
       if (!ref.current) return;
       const current = e.currentTarget as HTMLDivElement;
-      const x = e.pageX - current.offsetLeft;
+      const x =
+        e instanceof TouchEvent
+          ? e.touches[0].pageX - current.offsetLeft
+          : (e as MouseEvent).pageX - current.offsetLeft;
 
       if (!isMouseDown) return;
       /* The code snippet `current.scrollTo({ left: prefLeft + (velX - x) / 20, behavior: "auto" });` is used
@@ -96,19 +100,35 @@ to scroll the `ref` element horizontally based on the mouse movement. */
       setScrollProgress(
         (current.scrollLeft / (current.scrollWidth - current.offsetWidth)) * 100
       );
-    });
+    };
 
-    ref.current?.addEventListener("mouseup", () => {
+    const upEventHandler = () => {
       if (!ref.current) return;
       isMouseDown = false;
       document.body.style.cursor = "auto";
-    });
+    };
+
+    /* This code snippet adds an event listener to the `mousedown` event on the `ref` element. When the
+user presses the mouse button down on the element, the event listener function is called. */
+    ref.current?.addEventListener("mousedown", downEventHandler);
+
+    ref.current?.addEventListener("mousemove", moveEventHandler);
+
+    ref.current?.addEventListener("mouseup", upEventHandler);
+
+    ref.current?.addEventListener("touchstart", downEventHandler);
+    ref.current?.addEventListener("touchmove", moveEventHandler);
+    ref.current?.addEventListener("touchend", upEventHandler);
 
     return () => {
       ref.current?.removeEventListener("mousedown", () => {});
       ref.current?.removeEventListener("mousemove", () => {});
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       ref.current?.removeEventListener("mouseup", () => {});
+
+      ref.current?.removeEventListener("touchstart", () => {});
+      ref.current?.removeEventListener("touchmove", () => {});
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      ref.current?.removeEventListener("touchend", () => {});
     };
   }, []);
 
@@ -250,8 +270,12 @@ to scroll the `ref` element horizontally based on the mouse movement. */
         >
           <ArrowLeft
             sx={{
-              width: "3rem",
-              height: "3rem",
+              width: {
+                xs: "2rem",
+                sm: "3rem",
+              },
+              height: "auto",
+              aspectRatio: "1/1",
             }}
           />
         </IconButton>
@@ -268,8 +292,13 @@ to scroll the `ref` element horizontally based on the mouse movement. */
         >
           <ArrowRight
             sx={{
-              width: "3rem",
-              height: "3rem",
+              width: {
+                xs: "2rem",
+                sm: "3rem",
+              },
+              height: "auto",
+              flexShrink: 0,
+              aspectRatio: "1/1",
             }}
           />
         </IconButton>
@@ -280,6 +309,7 @@ to scroll the `ref` element horizontally based on the mouse movement. */
           overflow="hidden"
           maxWidth="100vw"
           position="relative"
+          sx={{}}
         >
           <div style={{ width: "30.5vw", flexShrink: 0, height: "100%" }}></div>
           <ScrollCourselContext.Provider value={scrollLeft}>
@@ -387,7 +417,11 @@ function ImageWrapper({
           <Typography variant="h3" fontWeight={800} textAlign="center">
             {title}
           </Typography>
-          <Typography textTransform="capitalize" variant="body1">
+          <Typography
+            textTransform="capitalize"
+            variant="body1"
+            textAlign="center"
+          >
             {category.join(", ")}
           </Typography>
           <Link href={url} target="_blank" marginTop="auto">

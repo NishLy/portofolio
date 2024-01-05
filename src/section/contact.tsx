@@ -84,7 +84,13 @@ export default function Contact() {
                 gap={2}
                 justifyContent="space-between"
               >
-                <Stack direction="row" gap={1}>
+                <Stack
+                  direction="row"
+                  gap={1}
+                  sx={{
+                    wordBreak: "break-word",
+                  }}
+                >
                   <EmailRounded /> adhipamungkaswijayadi@gmail.com
                 </Stack>
                 <Button

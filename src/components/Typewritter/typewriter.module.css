@@ -4,6 +4,8 @@
 } */
 .animate {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   font-size: inherit;
 }
 .animate > span {

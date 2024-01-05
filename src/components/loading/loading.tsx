@@ -1,5 +1,5 @@
-import { LinearProgress, Stack, Typography } from "@mui/material";
-
+import { Stack } from "@mui/material";
+import style from "./loading.module.css";
 const Loading = () => {
   return (
     <Stack
@@ -13,11 +13,14 @@ const Loading = () => {
       color={"white"}
       spacing={2}
     >
-      <LinearProgress color="secondary" />
-
-      <Typography variant="body1" marginTop="10">
-        *this page is not optimized for mobile devices
-      </Typography>
+      <div className={style["big"]}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className={style["tri"]}></div>
     </Stack>
   );
 };

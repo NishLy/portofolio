@@ -38,7 +38,7 @@ export default function About() {
             flexBasis="1/2"
           >
             <Tag>ABOUT</Tag>
-            <Typography fontWeight={800} variant="h3" height="2rem">
+            <Typography fontWeight={800} variant="h3" height="5rem">
               <TypeWriter
                 sequence={[
                   { text: "Hello, I'am Adhi", waitTime: 5000 },

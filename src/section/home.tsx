@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <div className={style["slider-thumb"]}></div>
       <Box
-        id="home"
+       
         component="section"
         alignItems="center"
         justifyContent="center"

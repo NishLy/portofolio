@@ -106,7 +106,7 @@ const Navbar = () => {
         >
           <MenuItem
             sx={{
-              width: "calc(100vw - 6rem)",
+              width: "calc(100vw - 5.15rem)",
             }}
           >
             <Link
@@ -213,36 +213,6 @@ const Navbar = () => {
             </Link>
           </MenuItem>
         </Stack>
-        {/* <Typography variant="h6" color={theme.palette.text.primary}>
-          ADHI
-        </Typography> */}
-        {/* <table
-          style={{
-            color: theme.palette.text.primary,
-            textDecoration: "none",
-            textTransform: "uppercase",
-            fontSize: "1rem",
-            fontWeight: 700,
-          }}
-        >
-          <tbody>
-            <tr>
-              <td>P</td>
-              <td>o</td>
-              <td>R</td>
-            </tr>
-            <tr>
-              <td>t</td>
-              <td>f</td>
-              <td>o</td>
-            </tr>
-            <tr>
-              <td>l</td>
-              <td>i</td>
-              <td>o</td>
-            </tr>
-          </tbody>
-        </table> */}
       </Stack>
     </Box>
   );

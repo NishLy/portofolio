@@ -14,14 +14,22 @@ import Home from "./section/home";
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    setLoaded(true);
+    setTimeout(() => {
+      setLoaded(true);
+    }, 2000);
   }, []);
 
   const theme = createTheme({
     palette: {
       mode: "dark",
       background: {
-        default: "#010205",
+        default: "#060918",
+      },
+      primary: {
+        main: "#800080",
+      },
+      secondary: {
+        main: "#b803b8",
       },
     },
   });
@@ -38,6 +46,7 @@ export default function App() {
             <Navbar />
             <Home />
             <div
+              id="home"
               style={{
                 width: "100vw",
                 height: "100vh",

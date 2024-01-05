@@ -19,7 +19,7 @@ export const Matrix = (props: MatrixProps) => {
     if (!ctx || !canvasEl.current) return;
 
     const defultLetters =
-      "ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZいうえおくきこけすしせそちつてとにぬねのひふへほみむめもゆよりるれろأىورزدذطظءةكمنتالبيسشجحخهعغفقثصض";
+      "ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZいうえおくきこけすしせそちつてとにぬねのひふへほみむめもゆよりるれろأىورزدذطظءةكمنتالبيسشجحخهعغفقثصضアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤイユエヨラリルレロワイウエヲ";
     const letters = defultLetters.split("");
 
     const fontSize = props.fontSize ?? 10;

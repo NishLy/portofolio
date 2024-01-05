@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,800;0,900;1,600&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +8,33 @@
   --accent-color-medium: #b803b8;
 }
 
+:root {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
 body {
   overflow-x: hidden;
   width: 100vw;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.8;
+}
+
+a:hover {
+  opacity: 1;
 }
 
 .cover {
