@@ -28,26 +28,3 @@
     transform: translateY(0);
   }
 }
-
-a {
-  color: white;
-  height: fit-content;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-}
-
-a::after {
-  content: "";
-  background: purple;
-  display: block;
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  transition: all 0.3s ease-in-out;
-}
-
-a:hover::after {
-  width: 100%;
-}

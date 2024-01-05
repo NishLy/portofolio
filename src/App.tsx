@@ -14,9 +14,11 @@ import Home from "./section/home";
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
+    document.body.style.overflowY = "hidden";
     setTimeout(() => {
+      document.body.style.overflowY = "auto";
       setLoaded(true);
-    }, 2000);
+    }, 2200);
   }, []);
 
   const theme = createTheme({

@@ -16,7 +16,9 @@ const Navbar = () => {
   const theme = useTheme();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -25,17 +27,13 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    if (!navbarEl.current) return;
+    hideNavbar(navbarEl);
     document.body.onscroll = (ev) => {
-      if (!navbarEl.current) return;
       if ((ev.currentTarget as Window).scrollY === 0) {
-        console.log(navbarEl);
-        navbarEl.current.style.backgroundColor = "transparent";
-        navbarEl.current.style.backdropFilter = "none";
-        navbarEl.current.style.border = "none";
+        hideNavbar(navbarEl);
       } else {
-        navbarEl.current.style.backgroundColor = "#00000080";
-        navbarEl.current.style.backdropFilter = "blur(8px)";
-        navbarEl.current.style.border = "1px solid var(--accent-color)";
+        showNav(navbarEl);
       }
     };
   }, []);
@@ -219,3 +217,17 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+function hideNavbar(navbarEl: React.RefObject<HTMLDivElement>) {
+  if (!navbarEl.current) return;
+  navbarEl.current.style.backgroundColor = "transparent";
+  navbarEl.current.style.backdropFilter = "none";
+  navbarEl.current.style.border = "none";
+}
+
+function showNav(navbarEl: React.RefObject<HTMLDivElement>) {
+  if (!navbarEl.current) return;
+  navbarEl.current.style.backgroundColor = "#00000080";
+  navbarEl.current.style.backdropFilter = "blur(8px)";
+  navbarEl.current.style.border = "1px solid var(--accent-color)";
+}
