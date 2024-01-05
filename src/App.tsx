@@ -27,7 +27,6 @@ export default function App() {
   });
   return (
     <>
-      <Background />
       {!loaded && <Loading />}
       {loaded && (
         <>
@@ -37,11 +36,25 @@ export default function App() {
           ></div>
           <ThemeProvider theme={theme}>
             <Navbar />
-            <main>
-              <Home />
-              <About />
-              <Experiences />
-              <Contact />
+            <Home />
+            <div
+              style={{
+                width: "100vw",
+                height: "100vh",
+              }}
+            ></div>
+            <main
+              style={{
+                position: "relative",
+                zIndex: 1,
+                overflow: "hidden",
+              }}
+            >
+              <Background>
+                <About />
+                <Experiences />
+                <Contact />
+              </Background>
               <SourceCode />
             </main>
             <Footer />

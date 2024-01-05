@@ -1,14 +1,21 @@
 import style from "./style.module.css";
 
-const Background = () => {
+const Background = (props: { children?: React.ReactNode }) => {
   return (
-    <div className={style["hero"]}>
-      <div className={style["cube"]}></div>
-      <div className={style["cube"]}></div>
-      <div className={style["cube"]}></div>
-      <div className={style["cube"]}></div>
-      <div className={style["cube"]}></div>
-      <div className={style["cube"]}></div>
+    <div
+      style={{
+        height: "fit-content",
+      }}
+    >
+      <div className={style["hero"]}>
+        <div className={style["cube"]}></div>
+        <div className={style["cube"]}></div>
+        <div className={style["cube"]}></div>
+        <div className={style["cube"]}></div>
+        <div className={style["cube"]}></div>
+        <div className={style["cube"]}></div>
+      </div>
+      {props.children}
     </div>
   );
 };

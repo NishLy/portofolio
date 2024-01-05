@@ -1,5 +1,6 @@
-import { Box, Stack, Container, useTheme } from "@mui/material";
+import { Box, Stack, useTheme } from "@mui/material";
 import Coursel from "../components/Coursel/Coursel";
+import Tag from "../components/tag";
 
 export default function Experiences() {
   const theme = useTheme();
@@ -20,21 +21,7 @@ export default function Experiences() {
         paddingTop={theme.spacing(15)}
         height="100%"
       >
-        <Container
-          sx={{
-            width: "fit-content",
-            borderRadius: "1rem",
-            border: "2px solid var(--accent-color)",
-            padding: ".2rem .5rem",
-            backgroundColor: "#80008030",
-          }}
-        >
-          Experiences
-        </Container>
-        {/* <Typography fontWeight={800} variant="h5">
-                  My Experiences
-                </Typography> */}
-
+        <Tag>EXPERIENCES</Tag>
         <Coursel
           data={[
             {

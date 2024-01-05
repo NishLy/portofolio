@@ -3,12 +3,12 @@ import {
   Box,
   Grid,
   Stack,
-  Container,
   Typography,
   TextField,
   Button,
   useTheme,
 } from "@mui/material";
+import Tag from "../components/tag";
 
 export default function Contact() {
   const theme = useTheme();
@@ -41,17 +41,7 @@ export default function Contact() {
             justifyContent="flex-start"
             alignItems="flex-start"
           >
-            <Container
-              sx={{
-                width: "fit-content",
-                borderRadius: "1rem",
-                border: "2px solid var(--accent-color)",
-                padding: ".2rem .5rem",
-                backgroundColor: "#80008030",
-              }}
-            >
-              Contact
-            </Container>
+            <Tag>CONTACT</Tag>
             <Typography variant="h2" fontWeight={800}>
               Get problem to solve?
             </Typography>

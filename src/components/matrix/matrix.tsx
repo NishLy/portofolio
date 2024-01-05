@@ -19,7 +19,7 @@ export const Matrix = (props: MatrixProps) => {
     if (!ctx || !canvasEl.current) return;
 
     const defultLetters =
-      "ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ";
+      "ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZいうえおくきこけすしせそちつてとにぬねのひふへほみむめもゆよりるれろأىورزدذطظءةكمنتالبيسشجحخهعغفقثصض";
     const letters = defultLetters.split("");
 
     const fontSize = props.fontSize ?? 10;
@@ -31,12 +31,11 @@ export const Matrix = (props: MatrixProps) => {
       drops[i] = 1;
     }
 
-    console.log(window.innerWidth, window.innerHeight);
-
-    canvasEl.current.width = window.innerWidth;
-    canvasEl.current.height = window.innerHeight;
+    canvasEl.current.width = 1920;
+    canvasEl.current.height = 1080;
 
     function draw() {
+      if (!canvasEl.current) return;
       ctx!.font = `${fontSize}px ${props.font ?? "monospace"}`;
       ctx!.fillStyle = props.background ?? "rgba(0, 0, 0, .1)";
       ctx!.fillRect(0, 0, canvasEl.current!.width, canvasEl.current!.height);

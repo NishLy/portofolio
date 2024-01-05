@@ -1,5 +1,6 @@
-import { Stack, Container, Typography, Button, useTheme } from "@mui/material";
+import { Stack, Typography, Button, useTheme } from "@mui/material";
 import { Matrix } from "../components/matrix/matrix";
+import Tag from "../components/tag";
 
 export default function SourceCode() {
   const theme = useTheme();
@@ -8,11 +9,11 @@ export default function SourceCode() {
       style={{
         width: "100vw",
         height: "100vh",
-        borderBottom: "1px solid #80008050",
       }}
       color="#800080"
       background="#06091810"
       fontSize={20}
+      speed={50}
     >
       <Stack
         justifyContent="center"
@@ -26,19 +27,7 @@ export default function SourceCode() {
             "radial-gradient(circle, rgba(6,9,24,.1) 5%, rgba(6,9,24,1) 70%)",
         }}
       >
-        <Container
-          sx={{
-            width: "fit-content",
-            borderRadius: "1rem",
-            border: "2px solid var(--accent-color)",
-            padding: ".2rem .5rem",
-            backgroundColor: "#80008030",
-            color: theme.palette.text.primary,
-            textTransform: "uppercase",
-          }}
-        >
-          SOURCE CODE
-        </Container>
+        <Tag>SOURCE CODE</Tag>
         <Typography
           variant="h3"
           textAlign={"center"}
@@ -60,7 +49,9 @@ export default function SourceCode() {
           available on Github.
         </Typography>
         <Button
-          onClick={() => {}}
+          onClick={() => {
+            window.open("https://github.com/NishLy/portofolio", "_blank");
+          }}
           variant="contained"
           size="large"
           sx={{

@@ -214,7 +214,21 @@ to scroll the `ref` element horizontally based on the mouse movement. */
           onChange={handleChange}
           input={<OutlinedInput label="Tag" />}
           renderValue={(selected) => selected.join(", ")}
-          sx={selectSx}
+          inputProps={{
+            MenuProps: {
+              MenuListProps: {
+                sx: {
+                  backgroundColor: "var(--background-color)",
+                  backdropFilter: "blur(8px)",
+                  border: "1px solid var(--accent-color)",
+                },
+              },
+            },
+          }}
+          sx={{
+            width: "70vw",
+            ...selectSx,
+          }}
         >
           {categories.map((category: string) => (
             <MenuItem key={category} value={category}>

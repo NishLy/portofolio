@@ -1,17 +1,11 @@
 import { GitHub, LinkedIn, Instagram } from "@mui/icons-material";
-import {
-  Stack,
-  Divider,
-  Link,
-  Typography,
-  IconButton,
-  useTheme,
-} from "@mui/material";
+import { Stack, Link, Typography, IconButton, useTheme } from "@mui/material";
 
 export default function Footer() {
   const theme = useTheme();
   return (
     <Stack
+      component={"footer"}
       id="footer"
       sx={{
         width: "100%",
@@ -22,7 +16,7 @@ export default function Footer() {
       alignItems={"center"}
       padding={theme.spacing(5)}
       boxSizing={"border-box"}
-      gap={2}
+      gap={1}
     >
       <img
         src="/vite.svg"
@@ -30,13 +24,17 @@ export default function Footer() {
         style={{
           width: "5rem",
           height: "auto",
+          marginBlockEnd: "1rem",
         }}
       />
-
-      <Divider
-        sx={{
+      <hr
+        style={{
+          height: "1px",
+          color: "black",
           width: "90%",
-          marginY: "1rem !important",
+          border: "none",
+          background:
+            "radial-gradient(circle, rgba(255,255,255,.5) 10%, rgba(128,0,128,0) 100%)",
         }}
       />
       <Stack
@@ -47,7 +45,6 @@ export default function Footer() {
         width="100%"
         padding={2}
         gap={4}
-        margin="0 !important"
       >
         <Link
           href="/#home"
@@ -91,10 +88,15 @@ export default function Footer() {
           CONTACT
         </Link>
       </Stack>
-      <Divider
-        sx={{
+      <hr
+        style={{
+          marginBottom: "1rem",
+          height: "1px",
+          color: "black",
           width: "90%",
-          marginY: "1rem !important",
+          border: "none",
+          background:
+            "radial-gradient(circle, rgba(255,255,255,.5) 10%, rgba(128,0,128,0) 100%)",
         }}
       />
       <Typography variant="overline">Social Media</Typography>
@@ -104,7 +106,6 @@ export default function Footer() {
         }}
         justifyContent="center"
         direction="row"
-        gap={1}
       >
         <IconButton
           title="Github"

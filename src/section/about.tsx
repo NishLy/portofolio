@@ -1,12 +1,6 @@
-import {
-  Box,
-  Grid,
-  Stack,
-  Container,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, Grid, Stack, Typography, useTheme } from "@mui/material";
 import TypeWriter from "../components/Typewritter/TypeWriter";
+import Tag from "../components/tag";
 
 export default function About() {
   const theme = useTheme();
@@ -43,17 +37,7 @@ export default function About() {
             height="100%"
             flexBasis="1/2"
           >
-            <Container
-              sx={{
-                width: "fit-content",
-                borderRadius: "1rem",
-                border: "2px solid var(--accent-color)",
-                padding: ".2rem .5rem",
-                backgroundColor: "#80008030",
-              }}
-            >
-              About
-            </Container>
+            <Tag>ABOUT</Tag>
             <Typography fontWeight={800} variant="h3" height="2rem">
               <TypeWriter
                 sequence={[
