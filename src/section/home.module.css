@@ -1,3 +1,7 @@
+:root {
+  --left: 30%;
+  --top: 20%;
+}
 body {
   height: 100vh;
   background: linear-gradient(180deg, #530053, var(--background-color));
@@ -7,8 +11,8 @@ body {
   position: fixed;
   z-index: -100;
   content: "";
-  left: 30%;
-  top: 20%;
+  left: var(--left);
+  top: var(--top);
   width: 450px;
   height: 450px;
   background: #610061;
@@ -17,6 +21,7 @@ body {
   animation: sliderShape 5s linear infinite;
   display: block;
   -webkit-animation: sliderShape 5s linear infinite;
+  transition: all 0.1s;
 }
 @keyframes sliderShape {
   0%,

@@ -35,6 +35,29 @@ export default function App() {
       },
     },
   });
+
+  const handleMouseOver: React.MouseEventHandler<HTMLElement> = (e) => {
+    const sliderThumb = document.getElementById("slider-thumb");
+    if (!sliderThumb) return;
+    const x = e.clientX;
+    const y = e.clientY;
+
+    if (x % 2 === 0) return;
+
+    // const currentX = document.documentElement.style
+    //   .getPropertyValue("--top")
+    //   .split("%")[0];
+    // const currentY = document.documentElement.style
+    //   .getPropertyValue("--left")
+    //   .split("%")[0];
+
+    const percentX = ((x / window.innerWidth) * 100) / 8 + 20;
+    const percentY = ((y / window.innerHeight) * 100) / 8 + 20;
+
+    document.documentElement.style.setProperty("--left", `${percentX}%`);
+    document.documentElement.style.setProperty("--top", `${percentY}%`);
+  };
+
   return (
     <>
       {!loaded && <Loading />}
@@ -53,6 +76,7 @@ export default function App() {
                 width: "100vw",
                 height: "100vh",
               }}
+              onMouseMove={handleMouseOver}
             ></div>
             <main
               style={{

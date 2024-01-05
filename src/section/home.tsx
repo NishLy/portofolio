@@ -5,11 +5,11 @@ import style from "./home.module.css";
 
 export default function Home() {
   const theme = useTheme();
+
   return (
     <>
-      <div className={style["slider-thumb"]}></div>
+      <div id="slider-thumb" className={style["slider-thumb"]}></div>
       <Box
-       
         component="section"
         alignItems="center"
         justifyContent="center"
