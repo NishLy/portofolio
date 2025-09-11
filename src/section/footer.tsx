@@ -115,14 +115,14 @@ export default function Footer() {
         >
           <GitHub />
         </IconButton>
-        <IconButton
+        {/* <IconButton
           title="Github 2"
           onClick={() => {
             window.open("https://github.com/adhipaw");
           }}
         >
           <GitHub sx={{ color: "purple" }} />
-        </IconButton>
+        </IconButton> */}
         <IconButton
           title="Linkedin"
           onClick={() => {

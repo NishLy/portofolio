@@ -25,6 +25,50 @@ export default function Projects() {
         <Coursel
           data={[
             {
+              category: ["website", "react", "tailwind", "frontend"],
+              date: "2025-09-10T08:21:04+00:00",
+              thumbnail: "./images/landing_page_bandulan.png",
+              title: "Bandulan Landing Page",
+            },
+            {
+              category: ["website", "react", "material ui", "frontend"],
+              date: "2023-12-06T08:21:04+00:00",
+              thumbnail: "./images/portofolio.png",
+              title: "Portofolio",
+            },
+            {
+              category: ["mobile", "flutter", "firebase", "frontend"],
+              date: "2025-01-06T08:21:04+00:00",
+              thumbnail: "./images/sfa_bandulan.png",
+              title: "Sales Force Automation (Bandulan)",
+            },
+            {
+              category: [
+                "website",
+                "laravel",
+                "frontend",
+                "backend",
+                "tailwind",
+                "react",
+                "next",
+              ],
+              date: "2024-12-06T08:21:04+00:00",
+              thumbnail: "./images/dms_bandulan.png",
+              title: "Distribution Management System (Bandulan)",
+            },
+            {
+              category: ["website", "jquery", "frontend", "bootstrap"],
+              date: "2024-05-06T08:21:04+00:00",
+              thumbnail: "./images/bni.jpg",
+              title: "IDEABOX BNI",
+            },
+            {
+              category: ["website", "jquery", "frontend", "bootstrap"],
+              date: "2024-05-06T08:21:04+00:00",
+              thumbnail: "./images/mandiri.jpg",
+              title: "IDEABOX MANDIRI (MIX PITCH)",
+            },
+            {
               category: [
                 "website",
                 "next",

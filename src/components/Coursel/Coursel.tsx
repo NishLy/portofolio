@@ -26,7 +26,7 @@ import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 interface CourselProps {
   data: {
     date: string;
-    url: string;
+    url?: string;
     title: string;
     category: string[];
     thumbnail: string;
@@ -345,7 +345,7 @@ function ImageWrapper({
 }: {
   date: string;
   title: string;
-  url: string;
+  url?: string;
   category: string[];
   thumbnail: string;
 }) {
@@ -362,21 +362,7 @@ function ImageWrapper({
 
   function printDate(date: string) {
     const newDate = new Date(date);
-    const month = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    return `${month[newDate.getMonth()]} ${newDate.getFullYear()}`;
+    return `${newDate.getFullYear()}`;
   }
   return (
     <>
@@ -386,7 +372,7 @@ function ImageWrapper({
             padding: "0 !important",
             height: "24rem",
             margin: "0 !important",
-            aspectRatio: "16/9",
+            aspectRatio: "17/9",
             borderRadius: ".5rem",
             overflow: "hidden",
             display: "flex",
@@ -400,7 +386,7 @@ function ImageWrapper({
             ref={ref}
             src={thumbnail}
             style={{
-              aspectRatio: "16/9",
+              aspectRatio: "17/9",
               height: "100%",
               transition: "all 0.3s ease-in-out",
               objectFit: "cover",
@@ -416,8 +402,9 @@ function ImageWrapper({
         >
           <Typography variant="body2">{printDate(date)}</Typography>
           <Typography
-            variant="h3"
+            variant="h4"
             fontWeight={800}
+            textTransform="uppercase"
             // textAlign="center"
           >
             {title}
@@ -431,11 +418,17 @@ function ImageWrapper({
           </Typography>
           <Stack direction="row" justifyContent={"space-between"}>
             <Stack></Stack>
-            <Link href={url} target="_blank" marginTop="auto">
-              <Typography variant="body2" textAlign="right" color="whitesmoke">
-                See Project
-              </Typography>
-            </Link>
+            {url && (
+              <Link href={url} target="_blank" marginTop="auto">
+                <Typography
+                  variant="body2"
+                  textAlign="right"
+                  color="whitesmoke"
+                >
+                  See Project
+                </Typography>
+              </Link>
+            )}
           </Stack>
         </Stack>
       </div>
