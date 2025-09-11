@@ -1,12 +1,5 @@
 import { GitHub, LinkedIn, Instagram } from "@mui/icons-material";
-import {
-  Stack,
-  Link,
-  Typography,
-  IconButton,
-  useTheme,
-  Box,
-} from "@mui/material";
+import { Stack, Link, Typography, IconButton, useTheme } from "@mui/material";
 
 export default function Footer() {
   const theme = useTheme();
