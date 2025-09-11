@@ -11,17 +11,9 @@ import {
   IconButton,
   Link,
   SxProps,
-  Container,
   Chip,
 } from "@mui/material";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { createContext, useEffect, useMemo, useRef, useState } from "react";
 import "../hover.css";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 interface CourselProps {

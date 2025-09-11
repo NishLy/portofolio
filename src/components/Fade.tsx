@@ -25,7 +25,7 @@ const MainWrapper = ({ children }: { children: ReactNode }) => {
     return () => {
       clearInterval(timeout);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, [children]);
 
   return (
