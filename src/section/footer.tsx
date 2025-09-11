@@ -1,5 +1,12 @@
 import { GitHub, LinkedIn, Instagram } from "@mui/icons-material";
-import { Stack, Link, Typography, IconButton, useTheme } from "@mui/material";
+import {
+  Stack,
+  Link,
+  Typography,
+  IconButton,
+  useTheme,
+  Box,
+} from "@mui/material";
 
 export default function Footer() {
   const theme = useTheme();
@@ -27,8 +34,10 @@ export default function Footer() {
           marginBlockEnd: "1rem",
         }}
       />
+      <img src="http://ghchart.rshah.org/Nishly" alt="Nishly Contribution" />
       <hr
         style={{
+          marginTop: "1rem",
           height: "1px",
           color: "black",
           width: "90%",
