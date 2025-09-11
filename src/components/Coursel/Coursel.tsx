@@ -12,6 +12,7 @@ import {
   Link,
   SxProps,
   Container,
+  Chip,
 } from "@mui/material";
 import {
   createContext,
@@ -370,7 +371,7 @@ function ImageWrapper({
         <div
           style={{
             padding: "0 !important",
-            height: "24rem",
+            height: "20rem",
             margin: "0 !important",
             aspectRatio: "17/9",
             borderRadius: ".5rem",
@@ -412,9 +413,19 @@ function ImageWrapper({
           <Typography
             textTransform="capitalize"
             variant="body1"
+            marginTop={".5rem"}
             // textAlign="center"
           >
-            {category.join(", ")}
+            {category.map((e) => (
+              <Chip
+                key={e}
+                label={e}
+                variant="outlined"
+                sx={{
+                  marginRight: ".5rem",
+                }}
+              />
+            ))}
           </Typography>
           <Stack direction="row" justifyContent={"space-between"}>
             <Stack></Stack>
