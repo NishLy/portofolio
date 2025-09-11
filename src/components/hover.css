@@ -1,11 +1,21 @@
 .blur:hover > div {
   visibility: visible;
+  cursor: pointer;
+  /* border: "2px solid var(--accent-color) !important"; */
+
+  background: linear-gradient(
+    90deg,
+    var(--accent-color),
+    var(--secondary-color)
+  );
+}
+
+.blur:hover {
+  border: 2px solid var(--accent-color) !important;
 }
 
 .blur:hover > img {
-  filter: blur(4px);
-  transform: scale(1.5);
-  transition: all 0.1s ease-in-out;
+  transform: scale(1.1);
 }
 
 .blur:hover p {

@@ -72,10 +72,10 @@ export default function Footer() {
           sx={{
             textDecoration: "none",
           }}
-          href="/#experiences"
+          href="/#projects"
           color={theme.palette.text.primary}
         >
-          EXPERIENCES
+          PROJECTS
         </Link>
         <Link
           margin="0 !important"

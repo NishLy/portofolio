@@ -134,10 +134,10 @@ const Navbar = () => {
               sx={{
                 textDecoration: "none",
               }}
-              href="/#experiences"
+              href="/#projects"
               color={theme.palette.text.primary}
             >
-              Experiences
+              Projects
             </Link>
           </MenuItem>
           <MenuItem>
@@ -193,10 +193,10 @@ const Navbar = () => {
               sx={{
                 textDecoration: "none",
               }}
-              href="/#experiences"
+              href="/#projects"
               color={theme.palette.text.primary}
             >
-              Experiences
+              Projects
             </Link>
           </MenuItem>
           <MenuItem>

@@ -2,11 +2,11 @@ import { Box, Stack, useTheme } from "@mui/material";
 import Coursel from "../components/Coursel/Coursel";
 import Tag from "../components/tag";
 
-export default function Experiences() {
+export default function Projects() {
   const theme = useTheme();
   return (
     <Box
-      id="experiences"
+      id="projects"
       sx={{
         width: "100vw",
         minHeight: "100vh",
@@ -21,7 +21,7 @@ export default function Experiences() {
         paddingTop={theme.spacing(15)}
         height="100%"
       >
-        <Tag>EXPERIENCES</Tag>
+        <Tag>PROJECTS</Tag>
         <Coursel
           data={[
             {

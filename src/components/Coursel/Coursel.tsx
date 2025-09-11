@@ -11,6 +11,7 @@ import {
   IconButton,
   Link,
   SxProps,
+  Container,
 } from "@mui/material";
 import {
   createContext,
@@ -219,7 +220,6 @@ user presses the mouse button down on the element, the event listener function i
         100
     );
   };
-
   return (
     <>
       <Stack
@@ -313,9 +313,14 @@ user presses the mouse button down on the element, the event listener function i
         >
           <div style={{ width: "30.5vw", flexShrink: 0, height: "100%" }}></div>
           <ScrollCourselContext.Provider value={scrollLeft}>
-            {filteredData.map((data, i) => (
-              <ImageWrapper {...data} key={data.title + i} />
-            ))}
+            {filteredData
+              .sort(
+                (a, b) =>
+                  new Date(b.date).getTime() - new Date(a.date).getTime()
+              )
+              .map((data, i) => (
+                <ImageWrapper {...data} key={data.title + i} />
+              ))}
           </ScrollCourselContext.Provider>
           <div style={{ width: "30.5vw", flexShrink: 0, height: "100%" }}></div>
         </Stack>
@@ -345,13 +350,15 @@ function ImageWrapper({
   thumbnail: string;
 }) {
   const ref = useRef<HTMLImageElement | null>(null);
-  const scrollContext = useContext(ScrollCourselContext);
+  // const scrollContext = useContext(ScrollCourselContext);
 
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.style.transform = `translateX(-${scrollContext.scrollParallax}px)`;
-    }
-  }, [scrollContext]);
+  // useEffect(() => {
+  //   if (ref.current) {
+  //     ref.current.style.transform = `translateX(-${
+  //       scrollContext.scrollParallax * 0.01
+  //     }px)`;
+  //   }
+  // }, [scrollContext]);
 
   function printDate(date: string) {
     const newDate = new Date(date);
@@ -373,60 +380,63 @@ function ImageWrapper({
   }
   return (
     <>
-      <div
-        style={{
-          padding: "0 !important",
-          width: "18rem",
-          margin: "0 !important",
-          aspectRatio: "10/16",
-          overflowX: "clip",
-          borderRadius: ".5rem",
-          display: "flex",
-          flexShrink: 0,
-          justifyContent: "flex-start",
-          position: "relative",
-        }}
-        className="blur"
-      >
-        <img
-          ref={ref}
-          src={thumbnail}
+      <div className="">
+        <div
           style={{
+            padding: "0 !important",
+            height: "24rem",
+            margin: "0 !important",
             aspectRatio: "16/9",
-            height: "100%",
-            transition: ".3 ease-in transform",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            objectFit: "cover",
+            borderRadius: ".5rem",
+            overflow: "hidden",
+            display: "flex",
+            flexShrink: 0,
+            justifyContent: "flex-start",
+            position: "relative",
           }}
-          loading="lazy"
-          alt={title}
-        ></img>
+          className="blur"
+        >
+          <img
+            ref={ref}
+            src={thumbnail}
+            style={{
+              aspectRatio: "16/9",
+              height: "100%",
+              transition: "all 0.3s ease-in-out",
+              objectFit: "cover",
+            }}
+            loading="lazy"
+            alt={title}
+          ></img>
+        </div>
         <Stack
-          spacing={1}
-          component="div"
-          width="100%"
-          height="100%"
-          visibility="hidden"
-          justifyContent="center"
-          alignItems="center"
-          color="white"
+          style={{
+            marginTop: "1rem",
+          }}
         >
           <Typography variant="body2">{printDate(date)}</Typography>
-          <Typography variant="h3" fontWeight={800} textAlign="center">
+          <Typography
+            variant="h3"
+            fontWeight={800}
+            // textAlign="center"
+          >
             {title}
           </Typography>
           <Typography
             textTransform="capitalize"
             variant="body1"
-            textAlign="center"
+            // textAlign="center"
           >
             {category.join(", ")}
           </Typography>
-          <Link href={url} target="_blank" marginTop="auto">
-            <Typography variant="body2">See Project</Typography>
-          </Link>
+          <Stack direction="row" justifyContent={"space-between"}>
+            <Stack></Stack>
+            <Link href={url} target="_blank" marginTop="auto">
+              <Typography variant="body2" textAlign="right" color="whitesmoke">
+                See Project
+              </Typography>
+            </Link>
+          </Stack>
         </Stack>
       </div>
     </>

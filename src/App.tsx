@@ -7,7 +7,7 @@ import Navbar from "./components/navbar/navbar";
 import Footer from "./section/footer";
 import SourceCode from "./section/source_code";
 import Contact from "./section/contact";
-import Experiences from "./section/experiences";
+import Projects from "./section/projects";
 import About from "./section/about";
 import Home from "./section/home";
 
@@ -87,7 +87,7 @@ export default function App() {
             >
               <Background>
                 <About />
-                <Experiences />
+                <Projects />
                 <Contact />
               </Background>
               <SourceCode />
