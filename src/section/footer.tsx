@@ -19,10 +19,10 @@ export default function Footer() {
       gap={1}
     >
       <img
-        src="/vite.svg"
+        src="/images/logo.png"
         alt=""
         style={{
-          width: "5rem",
+          width: "15rem",
           height: "auto",
           marginBlockEnd: "1rem",
         }}
