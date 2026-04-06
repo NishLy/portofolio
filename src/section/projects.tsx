@@ -1,132 +1,91 @@
-import { Box, Stack, useTheme } from "@mui/material";
-import Coursel from "../components/Coursel/Coursel";
+// import Coursel from "../components/Coursel/Coursel";
+import { useEffect, useState } from "react";
+import classNames from "classnames";
 import Tag from "../components/tag";
+import ProjectCard, { BrandLogo, Project } from "../components/ui/project_card";
 
 export default function Projects() {
-  const theme = useTheme();
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [availableCategories, setAvailableCategories] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("/data/projects.json");
+        const data: Project[] = await response.json();
+
+        data.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+        );
+
+        setProjects(data);
+        const categories = Array.from(
+          new Set(data.flatMap((project: Project) => project.categories)),
+        );
+        setAvailableCategories(categories);
+        setSelectedCategories(categories);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+      setLoading(false);
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
-    <Box
+    <div
       id="projects"
-      sx={{
-        width: "100vw",
-        minHeight: "100vh",
-        color: theme.palette.text.primary,
-      }}
+      className="w-screen min-h-screen text-primary text-center flex flex-col items-center px-32  gap-10 py-20 bg-surface"
     >
-      <Stack
-        justifyContent="center"
-        alignItems="center"
-        spacing={2}
-        padding={theme.spacing(5)}
-        paddingTop={theme.spacing(15)}
-        height="100%"
-      >
-        <Tag>PROJECTS</Tag>
-        <Coursel
-          data={[
-            {
-              category: ["website", "react", "tailwind", "frontend"],
-              date: "2025-09-10T08:21:04+00:00",
-              thumbnail: "./images/landing_page_bandulan.png",
-              title: "Bandulan Landing Page",
-            },
-            {
-              category: ["website", "react", "material ui", "frontend"],
-              date: "2023-12-06T08:21:04+00:00",
-              thumbnail: "./images/portofolio.png",
-              title: "Portofolio",
-            },
-            {
-              category: ["mobile", "flutter", "firebase", "frontend"],
-              date: "2025-01-06T08:21:04+00:00",
-              thumbnail: "./images/sfa_bandulan.png",
-              title: "Sales Force Automation (Bandulan)",
-            },
-            {
-              category: [
-                "website",
-                "laravel",
-                "frontend",
-                "backend",
-                "tailwind",
-                "react",
-                "next",
-              ],
-              date: "2024-12-06T08:21:04+00:00",
-              thumbnail: "./images/dms_bandulan.png",
-              title: "Distribution Management System (Bandulan)",
-            },
-            {
-              category: ["website", "jquery", "frontend", "bootstrap"],
-              date: "2024-05-06T08:21:04+00:00",
-              thumbnail: "./images/bni.jpg",
-              title: "IDEABOX BNI",
-            },
-            {
-              category: ["website", "jquery", "frontend", "bootstrap"],
-              date: "2024-05-06T08:21:04+00:00",
-              thumbnail: "./images/mandiri.jpg",
-              title: "IDEABOX MANDIRI (MIX PITCH)",
-            },
-            {
-              category: [
-                "website",
-                "next",
-                "backend",
-                "frontend",
-                "react",
-                "trpc",
-              ],
-              date: "2023-05-06T08:21:04+00:00",
-              thumbnail: "./images/pskuy.png",
-              title: "Pskuy",
-              url: "https://github.com/NishLy/pskuy",
-            },
-            {
-              category: ["website", "frontend", "react"],
-              date: "2022-06-06T08:21:04+0000",
-              thumbnail: "./images/quizz.png",
-              title: "Quizz",
-              url: "https://github.com/NishLy/quizz",
-            },
-            {
-              category: ["website", "frontend"],
-              date: "2022-06-06T08:21:04+0000",
-              thumbnail: "./images/periodicTable.png",
-              title: "Periodic Table",
-              url: "https://github.com/NishLy/periodicTable",
-            },
-            {
-              category: ["backend", "nestjs"],
-              date: "2023-09-06T08:21:04+0000",
-              thumbnail: "./images/discord.png",
-              title: "Discord Clone Backend",
-              url: "https://github.com/NishLy/discord-clone-backend",
-            },
-            {
-              category: ["front", "tailwind", "backend", "express"],
-              date: "2023-07-06T08:21:04+0000",
-              thumbnail: "./images/uploader.png",
-              title: "Uploader",
-              url: "https://github.com/NishLy/uploader_test",
-            },
-            {
-              category: ["backend", "express"],
-              date: "2023-07-06T08:21:04+0000",
-              thumbnail: "./images/byu.png",
-              title: "Walkwise Backend",
-              url: "https://github.com/adhipaw/backend-byu",
-            },
-            {
-              category: ["frontend", "react"],
-              date: "2023-07-06T08:21:04+0000",
-              thumbnail: "./images/byu.png",
-              title: "Note App",
-              url: "https://github.com/adhipaw/react-note",
-            },
-          ]}
-        />
-      </Stack>
-    </Box>
+      <Tag>PROJECTS</Tag>
+
+      <div className="flex flex-wrap gap-3 justify-start mb-10 w-full">
+        {availableCategories
+          .sort((a, b) => a.localeCompare(b))
+          .map((category) => (
+            <button
+              key={category}
+              className={classNames(
+                "cursor-pointer px-5 py-2 uppercase text-sm font-medium flex gap-2 items-center rounded-full border border-primary/40 bg-linear-to-r from-primary/15 to-primary/5 text-primary hover:border-primary/70 hover:from-primary/25 hover:to-primary/10 hover:shadow-lg transition-all duration-300",
+                {
+                  "bg-primary/50 text-white":
+                    selectedCategories.includes(category),
+                },
+              )}
+              onClick={() => {
+                if (selectedCategories.includes(category)) {
+                  setSelectedCategories(
+                    selectedCategories.filter((c) => c !== category),
+                  );
+                } else {
+                  setSelectedCategories([...selectedCategories, category]);
+                }
+              }}
+            >
+              {BrandLogo(category)} {category}
+            </button>
+          ))}
+      </div>
+
+      {loading ? (
+        <p className="text-gray-400">Loading projects...</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+          {projects
+            .filter((project) =>
+              selectedCategories.some((cat) =>
+                project.categories.includes(cat),
+              ),
+            )
+            .map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
+            ))}
+        </div>
+      )}
+    </div>
   );
 }
