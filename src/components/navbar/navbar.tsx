@@ -16,13 +16,13 @@ const Navbar = () => {
       if (!navbarEl.current) return;
       if (window.scrollY > 50) {
         navbarEl.current.classList.add(
-          "bg-surface/50",
+          "bg-surface/10",
           "backdrop-blur-2xl",
           "border-2",
         );
         navbarEl.current.classList.remove("border-0");
       } else {
-        navbarEl.current.classList.remove("bg-surface/50", "backdrop-blur-2xl");
+        navbarEl.current.classList.remove("bg-surface/10", "backdrop-blur-2xl");
         navbarEl.current.classList.add("border-0");
       }
     };
