@@ -19,11 +19,15 @@ const Navbar = () => {
           "bg-surface/10",
           "backdrop-blur-2xl",
           "border-2",
+          "border-border",
         );
-        navbarEl.current.classList.remove("border-0");
       } else {
-        navbarEl.current.classList.remove("bg-surface/10", "backdrop-blur-2xl");
-        navbarEl.current.classList.add("border-0");
+        navbarEl.current.classList.remove(
+          "bg-surface/10",
+          "backdrop-blur-2xl",
+          "border-2",
+          "border-border",
+        );
       }
     };
 
@@ -38,7 +42,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 w-screen px-10 py-8 z-50 box-border">
       <nav
         ref={navbarEl}
-        className="w-full h-fit flex flex-row justify-between items-center rounded-lg py-2 px-6 transition-all duration-300 border-0 border-border"
+        className="w-full h-fit flex flex-row justify-between items-center rounded-lg py-2 px-6 transition-all duration-300"
       >
         <button
           onClick={handleMenuClick}
