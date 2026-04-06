@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,800;0,900;1,600&display=swap");
+
+/* ===== DESIGN TOKENS ===== */
+@theme {
+  --color-background: 6 9 24;
+
+  --color-primary: 128 0 128;
+  --color-primary-500: 168 85 247;
+  --color-primary-600: 147 51 234;
+
+  --color-secondary: 184 3 184;
+  --color-secondary-500: 184 3 184;
+  --color-secondary-600: 150 0 150;
+
+  --color-surface: 10 14 35;
+  --color-border: 30 41 59;
+
+  --color-text-primary: 255 255 255;
+  --color-text-secondary: 148 163 184;
+}
+
+/* ===== BASE LAYER ===== */
+@layer base {
+  html {
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-[rgb(var(--color-background))] text-white overflow-x-hidden;
+  }
+
+  a {
+    @apply text-white opacity-80 transition-all duration-300 relative;
+  }
+
+  a:hover {
+    @apply opacity-100;
+  }
+
+  a::after {
+    content: "";
+    @apply absolute left-0 bottom-0 h-[3px] w-0 bg-primary transition-all duration-300;
+  }
+
+  a:hover::after {
+    @apply w-full rounded;
+  }
+}
+
+/* ===== COMPONENTS ===== */
+@layer components {
+  .cover {
+    @apply fixed inset-0 z-[9999] bg-white;
+    animation: swipeUp 1s ease-in-out 1s forwards;
+  }
+}
+
+/* ===== UTILITIES ===== */
+@layer utilities {
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-gray-100 border border-black;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--color-primary));
+  }
+}
+
+/* ===== ANIMATION ===== */
+@keyframes swipeUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
+}

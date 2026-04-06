@@ -1,7 +1,5 @@
-import { ThemeProvider, createTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import Loading from "./components/loading/loading";
-import "./App.css";
 import Background from "./components/background/background";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./section/footer";
@@ -13,6 +11,7 @@ import Home from "./section/home";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
     document.body.style.overflowY = "hidden";
     setTimeout(() => {
@@ -21,21 +20,6 @@ export default function App() {
     }, 2200);
   }, []);
 
-  const theme = createTheme({
-    palette: {
-      mode: "dark",
-      background: {
-        default: "#060918",
-      },
-      primary: {
-        main: "#800080",
-      },
-      secondary: {
-        main: "#b803b8",
-      },
-    },
-  });
-
   const handleMouseOver: React.MouseEventHandler<HTMLElement> = (e) => {
     const sliderThumb = document.getElementById("slider-thumb");
     if (!sliderThumb) return;
@@ -43,13 +27,6 @@ export default function App() {
     const y = e.clientY;
 
     if (x % 2 === 0) return;
-
-    // const currentX = document.documentElement.style
-    //   .getPropertyValue("--top")
-    //   .split("%")[0];
-    // const currentY = document.documentElement.style
-    //   .getPropertyValue("--left")
-    //   .split("%")[0];
 
     const percentX = ((x / window.innerWidth) * 100) / 8 + 20;
     const percentY = ((y / window.innerHeight) * 100) / 8 + 20;
@@ -63,37 +40,23 @@ export default function App() {
       {!loaded && <Loading />}
       {loaded && (
         <>
+          <div className="cover"></div>
+          <Navbar />
+          <Home />
           <div
-            className="cover"
-            style={{ backgroundColor: theme.palette.background.default }}
+            id="home"
+            className="w-screen h-screen"
+            onMouseMove={handleMouseOver}
           ></div>
-          <ThemeProvider theme={theme}>
-            <Navbar />
-            <Home />
-            <div
-              id="home"
-              style={{
-                width: "100vw",
-                height: "100vh",
-              }}
-              onMouseMove={handleMouseOver}
-            ></div>
-            <main
-              style={{
-                position: "relative",
-                zIndex: 1,
-                overflow: "hidden",
-              }}
-            >
-              <Background>
-                <About />
-                <Projects />
-                <Contact />
-              </Background>
-              <SourceCode />
-            </main>
-            <Footer />
-          </ThemeProvider>
+          <main className="relative z-1 overflow-hidden">
+            <Background>
+              <About />
+              <Projects />
+              <Contact />
+            </Background>
+            <SourceCode />
+          </main>
+          <Footer />
         </>
       )}
     </>
