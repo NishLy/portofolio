@@ -1,20 +1,7 @@
-import { Button, useTheme } from "@mui/material";
-
 export default function Tag(props: { children?: React.ReactNode }) {
-  const theme = useTheme();
   return (
-    <Button
-      sx={{
-        width: "fit-content",
-        borderRadius: "1rem",
-        border: "2px solid var(--accent-color)",
-        padding: ".2rem .5rem",
-        backgroundColor: "#80008030",
-        color: theme.palette.text.primary,
-        textTransform: "uppercase",
-      }}
-    >
+    <button className="w-fit rounded-4xl border-2 border-accent-color px-2 py-0.5 bg-purple-900/19 text-white uppercase border-border">
       {props.children}
-    </Button>
+    </button>
   );
 }
