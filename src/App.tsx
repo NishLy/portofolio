@@ -40,12 +40,12 @@ export default function App() {
       {!loaded && <Loading />}
       {loaded && (
         <>
-          <div className="cover"></div>
+          {/* <div className="w-screen h-screen bg-linear-to-b from-primary-900 to-transparent"></div> */}
           <Navbar />
           <Home />
           <div
             id="home"
-            className="w-screen h-screen"
+            className="w-screen h-screen bg-linear-to-b from-primary via-primary/20 via-primary/10 to-transparent"
             onMouseMove={handleMouseOver}
           ></div>
           <main className="relative z-1 overflow-hidden">

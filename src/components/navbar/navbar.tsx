@@ -1,233 +1,92 @@
-import {
-  Stack,
-  Link,
-  useTheme,
-  Box,
-  Menu,
-  MenuItem,
-  IconButton,
-} from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
+import classNames from "classnames";
 
 const Navbar = () => {
   const navbarEl = useRef<HTMLDivElement | null>(null);
+  const [menuDropdownOpen, setMenuDropdownOpen] = useState(false);
 
-  const theme = useTheme();
-
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleMenuClick = () => {
+    setMenuDropdownOpen(!menuDropdownOpen);
   };
 
   useEffect(() => {
     if (!navbarEl.current) return;
-    hideNavbar(navbarEl);
-    document.body.onscroll = (ev) => {
-      if ((ev.currentTarget as Window).scrollY === 0) {
-        hideNavbar(navbarEl);
+
+    const handleScroll = () => {
+      if (!navbarEl.current) return;
+      if (window.scrollY > 50) {
+        navbarEl.current.classList.add(
+          "bg-surface/50",
+          "backdrop-blur-2xl",
+          "border-2",
+        );
+        navbarEl.current.classList.remove("border-0");
       } else {
-        showNav(navbarEl);
+        navbarEl.current.classList.remove("bg-surface/50", "backdrop-blur-2xl");
+        navbarEl.current.classList.add("border-0");
       }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <Box
-      component="header"
-      padding={theme.spacing(5)}
-      width="100vw"
-      boxSizing="border-box"
-      top={0}
-      left={0}
-      position="fixed"
-      zIndex={1000}
-    >
-      <Stack
+    <header className="fixed top-0 left-0 w-screen px-10 py-8 z-50 box-border">
+      <nav
         ref={navbarEl}
-        width="100%"
-        height="fit-content"
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        borderRadius=".5rem"
-        padding={theme.spacing(1)}
-        sx={{
-          backgroundColor: "#00000080",
-          backdropFilter: "blur(8px)",
-          border: "1px solid var(--accent-color)",
-        }}
+        className="w-full h-fit flex flex-row justify-between items-center rounded-lg py-2 px-6 transition-all duration-300 border-0 border-border"
       >
-        <IconButton
-          aria-controls={open ? "basic-menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
-          onClick={handleClick}
-          sx={{
-            display: {
-              xs: "flex",
-              lg: "none",
-            },
-          }}
+        <button
+          onClick={handleMenuClick}
+          className="lg:hidden flex flex-col gap-1 p-2"
+          aria-label="Toggle menu"
         >
-          <MenuIcon />
-        </IconButton>
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "left",
-          }}
-          sx={{
-            marginTop: 1,
-            left: "-.5rem",
-            backgroundColor: "transparent",
-            "& .MuiMenu-paper": { backgroundColor: "transparent" },
-            "& .MuiMenu-list": {
-              // backgroundColor: "transparent",
-              padding: 0,
-              backgroundColor: "#00000080",
-              backdropFilter: "blur(8px)",
-              border: "1px solid var(--accent-color)",
+          <span className="w-6 h-0.5 bg-current"></span>
+          <span className="w-6 h-0.5 bg-current"></span>
+          <span className="w-6 h-0.5 bg-current"></span>
+        </button>
+
+        <div
+          className={classNames(
+            "lg:flex rounded-2xl w-full text-xl absolute top-full left-0 flex-col items-center gap-4 py-2 bg-surface/50 backdrop-blur-2xl lg:static lg:flex-row lg:w-auto lg:bg-transparent lg:gap-16 transition-all duration-300",
+            {
+              flex: menuDropdownOpen,
+              hidden: !menuDropdownOpen,
             },
-            textTransform: "uppercase",
-          }}
+          )}
         >
-          <MenuItem
-            sx={{
-              width: "calc(100vw - 5.15rem)",
-            }}
+          <a
+            href="/#home"
+            className="no-underline text-inherit hover:opacity-75 transition-opacity"
           >
-            <Link
-              href="/#home"
-              padding={0}
-              sx={{
-                textDecoration: "none",
-              }}
-              color={theme.palette.text.primary}
-            >
-              Home
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
-              sx={{
-                textDecoration: "none",
-              }}
-              href="/#about"
-              color={theme.palette.text.primary}
-            >
-              About
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
-              sx={{
-                textDecoration: "none",
-              }}
-              href="/#projects"
-              color={theme.palette.text.primary}
-            >
-              Projects
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
-              sx={{
-                textDecoration: "none",
-              }}
-              href="/#contact"
-              color={theme.palette.text.primary}
-            >
-              Contact
-            </Link>
-          </MenuItem>
-        </Menu>
-        <Stack
-          direction="row"
-          spacing={3}
-          width="100%"
-          sx={{
-            display: {
-              xs: "none",
-              lg: "flex",
-            },
-          }}
-          fontSize="large"
-          textTransform="uppercase"
-        >
-          <MenuItem>
-            <Link
-              href="/#home"
-              padding={0}
-              sx={{
-                textDecoration: "none",
-              }}
-              color={theme.palette.text.primary}
-            >
-              Home
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
-              sx={{
-                textDecoration: "none",
-              }}
-              href="/#about"
-              color={theme.palette.text.primary}
-            >
-              About
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
-              sx={{
-                textDecoration: "none",
-              }}
-              href="/#projects"
-              color={theme.palette.text.primary}
-            >
-              Projects
-            </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link
-              sx={{
-                textDecoration: "none",
-              }}
-              href="/#contact"
-              color={theme.palette.text.primary}
-            >
-              Contact
-            </Link>
-          </MenuItem>
-        </Stack>
-      </Stack>
-    </Box>
+            Home
+          </a>
+          <a
+            href="/#about"
+            className="no-underline text-inherit hover:opacity-75 transition-opacity"
+          >
+            About
+          </a>
+          <a
+            href="/#projects"
+            className="no-underline text-inherit hover:opacity-75 transition-opacity"
+          >
+            Projects
+          </a>
+          <a
+            href="/#contact"
+            className="no-underline text-inherit hover:opacity-75 transition-opacity"
+          >
+            Contact
+          </a>
+        </div>
+      </nav>
+    </header>
   );
 };
 
 export default Navbar;
-
-function hideNavbar(navbarEl: React.RefObject<HTMLDivElement>) {
-  if (!navbarEl.current) return;
-  navbarEl.current.style.backgroundColor = "transparent";
-  navbarEl.current.style.backdropFilter = "none";
-  navbarEl.current.style.border = "none";
-}
-
-function showNav(navbarEl: React.RefObject<HTMLDivElement>) {
-  if (!navbarEl.current) return;
-  navbarEl.current.style.backgroundColor = "#00000080";
-  navbarEl.current.style.backdropFilter = "blur(8px)";
-  navbarEl.current.style.border = "1px solid var(--accent-color)";
-}
