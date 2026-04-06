@@ -1,24 +1,6 @@
-import { FaReact } from "react-icons/fa";
-import { RiNextjsFill } from "react-icons/ri";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { SiNestjs } from "react-icons/si";
-import { SiVite } from "react-icons/si";
-import { FaLaravel } from "react-icons/fa";
-import { FaBootstrap } from "react-icons/fa";
-import { SiExpress } from "react-icons/si";
-import { DiJqueryLogo } from "react-icons/di";
-import { FaFlutter } from "react-icons/fa6";
-import { IoLogoFirebase } from "react-icons/io5";
-import { SiTrpc } from "react-icons/si";
-import { SiRedux } from "react-icons/si";
-import { SiReactquery } from "react-icons/si";
-import { FaGolang } from "react-icons/fa6";
-import { SiTypescript } from "react-icons/si";
-import { BiLogoPostgresql } from "react-icons/bi";
-import { SiApachekafka } from "react-icons/si";
-import { DiRedis } from "react-icons/di";
 import { FaGithub } from "react-icons/fa";
 import { FaLink } from "react-icons/fa6";
+import BrandLogo from "./logo_brand";
 
 export interface Project {
   title: string;
@@ -29,51 +11,6 @@ export interface Project {
   deployed_link?: string;
   date: string;
 }
-
-export const BrandLogo = (category: string) => {
-  switch (category.toLowerCase()) {
-    case "react":
-      return <FaReact />;
-    case "nextjs":
-      return <RiNextjsFill />;
-    case "tailwind":
-      return <RiTailwindCssFill />;
-    case "nestjs":
-      return <SiNestjs />;
-    case "vite":
-      return <SiVite />;
-    case "laravel":
-      return <FaLaravel />;
-    case "bootstrap":
-      return <FaBootstrap />;
-    case "express":
-      return <SiExpress />;
-    case "jquery":
-      return <DiJqueryLogo />;
-    case "flutter":
-      return <FaFlutter />;
-    case "firebase":
-      return <IoLogoFirebase />;
-    case "trpc":
-      return <SiTrpc />;
-    case "redux":
-      return <SiRedux />;
-    case "reactquery":
-      return <SiReactquery />;
-    case "golang":
-      return <FaGolang />;
-    case "typescript":
-      return <SiTypescript />;
-    case "postgresql":
-      return <BiLogoPostgresql />;
-    case "kafka":
-      return <SiApachekafka />;
-    case "redis":
-      return <DiRedis />;
-    default:
-      return null; // Return null if no icon is available for the category
-  }
-};
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (

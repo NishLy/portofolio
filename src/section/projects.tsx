@@ -1,8 +1,8 @@
 // import Coursel from "../components/Coursel/Coursel";
 import { useEffect, useState } from "react";
-import classNames from "classnames";
 import Tag from "../components/tag";
-import ProjectCard, { BrandLogo, Project } from "../components/ui/project_card";
+import ProjectCard, { Project } from "../components/ui/project_card";
+import CategoryButton from "../components/ui/button_category";
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -39,36 +39,27 @@ export default function Projects() {
   return (
     <div
       id="projects"
-      className="w-screen min-h-screen text-primary text-center flex flex-col items-center px-32  gap-10 py-20 bg-surface"
+      className="w-screen min-h-screen text-primary text-center flex flex-col items-center px-32  gap-10 py-20 "
     >
       <Tag>PROJECTS</Tag>
 
       <div className="flex flex-wrap gap-3 justify-start mb-10 w-full">
-        {availableCategories
-          .sort((a, b) => a.localeCompare(b))
-          .map((category) => (
-            <button
-              key={category}
-              className={classNames(
-                "cursor-pointer px-5 py-2 uppercase text-sm font-medium flex gap-2 items-center rounded-full border border-primary/40 bg-linear-to-r from-primary/15 to-primary/5 text-primary hover:border-primary/70 hover:from-primary/25 hover:to-primary/10 hover:shadow-lg transition-all duration-300",
-                {
-                  "bg-primary/50 text-white":
-                    selectedCategories.includes(category),
-                },
-              )}
-              onClick={() => {
-                if (selectedCategories.includes(category)) {
-                  setSelectedCategories(
-                    selectedCategories.filter((c) => c !== category),
-                  );
-                } else {
-                  setSelectedCategories([...selectedCategories, category]);
-                }
-              }}
-            >
-              {BrandLogo(category)} {category}
-            </button>
-          ))}
+        {availableCategories.map((category) => (
+          <CategoryButton
+            key={category}
+            category={category}
+            isSelected={selectedCategories.includes(category)}
+            onClick={() => {
+              if (selectedCategories.includes(category)) {
+                setSelectedCategories((prev) =>
+                  prev.filter((cat) => cat !== category),
+                );
+              } else {
+                setSelectedCategories((prev) => [...prev, category]);
+              }
+            }}
+          />
+        ))}
       </div>
 
       {loading ? (

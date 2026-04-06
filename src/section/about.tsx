@@ -1,5 +1,6 @@
 import TypeWriter from "../components/Typewritter/TypeWriter";
 import Tag from "../components/tag";
+import CategoryButton from "../components/ui/button_category";
 
 export default function About() {
   return (
@@ -25,7 +26,7 @@ export default function About() {
             alt="Adhi - Full Stack Developer"
           />
         </div>
-        <div className="flex items-center justify-center w-full h-screen px-3 md:px-5 animate-fadeInUp md:pr-16">
+        <div className="flex items-center justify-center w-full h-screen px-3 md:px-5 animate-fadeInUp md:pr-32">
           <div className="flex flex-col gap-4 w-full">
             <div className="animate-fadeIn" style={{ animationDelay: "0.2s" }}>
               <Tag>ABOUT ME</Tag>
@@ -75,30 +76,21 @@ export default function About() {
 
             <div className="flex flex-wrap gap-2 mt-2">
               {[
+                "Typescript",
+                "Golang",
+                "PostgreSQL",
+                "Redis",
+                "NodeJS",
                 "JavaScript",
-                "React",
-                "Node.js",
-                "Laravel",
-                "FastAPI",
-                "Fiber",
-                "Go",
+                "Dart",
                 "Python",
-                "PostgresSQL",
-                "Laravel",
-                "NestJS",
-                "Next",
               ].map((tech, index) => (
-                <div
-                  key={tech}
-                  className="px-4 py-2 text-xs font-semibold text-white border border-border/80 border-opacity-20 rounded-full cursor-pointer transition-all duration-300 hover:-translate-y-0.5"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05))",
-                    animation: `slideIn 0.5s ease-out ${index * 0.1}s both`,
-                  }}
-                >
-                  {tech}
-                </div>
+                <CategoryButton
+                  key={index}
+                  category={tech.toLowerCase()}
+                  isSelected={true}
+                  onClick={() => {}}
+                />
               ))}
             </div>
           </div>

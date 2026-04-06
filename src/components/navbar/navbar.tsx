@@ -39,7 +39,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-screen px-10 py-8 z-50 box-border">
+    <header className="fixed top-0 left-0 w-screen px-32 py-8 z-50 box-border">
       <nav
         ref={navbarEl}
         className="w-full h-fit flex flex-row justify-between items-center rounded-lg py-2 px-6 transition-all duration-300"
