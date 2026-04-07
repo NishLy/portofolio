@@ -3,7 +3,7 @@ import Navbar from "./components/navbar/navbar";
 import Footer from "./section/footer";
 import Projects from "./section/projects";
 import About from "./section/about";
-import { Matrix } from "./components/matrix/matrix";
+import { Matrix } from "./components/ui/matrix";
 import Experiences from "./section/experiences";
 import Contact from "./section/contact";
 import Hero from "./section/hero";

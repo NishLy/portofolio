@@ -1,7 +1,7 @@
-import ScrambleText from "../components/Typewritter/scramble_text";
+import ScrambleText from "../components/text/scramble_text";
 import SectionHeader from "../components/ui/section_header";
 import CategoryButton from "../components/ui/button_category";
-import TypeWriter from "../components/Typewritter/TypeWriter";
+import TypeWriter from "../components/text/TypeWriter";
 
 export default function About() {
   return (

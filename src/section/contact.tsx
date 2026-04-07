@@ -1,5 +1,5 @@
-import { EmailRounded } from "@mui/icons-material";
 import SectionHeader from "../components/ui/section_header";
+import { MdAttachEmail } from "react-icons/md";
 
 export default function Contact() {
   return (
@@ -44,7 +44,8 @@ export default function Contact() {
               />
               <div className="flex flex-wrap gap-2 justify-between">
                 <div className="flex gap-1 wrap-break-word">
-                  <EmailRounded /> adhipamungkaswijayadi@gmail.com
+                  <MdAttachEmail size={20} className="text-white" />
+                  adhipamungkaswijayadi@gmail.com
                 </div>
                 <button
                   type="submit"

@@ -1,4 +1,4 @@
-import ScrambleText from "../components/Typewritter/scramble_text";
+import ScrambleText from "../components/text/scramble_text";
 
 const Hero = () => {
   return (
