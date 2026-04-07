@@ -27,7 +27,7 @@ export default function Footer() {
           marginBlockEnd: "1rem",
         }}
       />
-      <img src="http://ghchart.rshah.org/Nishly" alt="Nishly Contribution" />
+      {/* <img src="http://ghchart.rshah.org/Nishly" alt="Nishly Contribution" /> */}
       <hr
         style={{
           marginTop: "1rem",
@@ -129,7 +129,7 @@ export default function Footer() {
           title="Linkedin"
           onClick={() => {
             window.open(
-              "https://www.linkedin.com/in/adhi-pamungkas-wijayadi-7362a9283/"
+              "https://www.linkedin.com/in/adhi-pamungkas-wijayadi-7362a9283/",
             );
           }}
         >

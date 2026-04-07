@@ -1,8 +1,6 @@
 import { Box, useTheme } from "@mui/material";
 import WelcomeText from "../components/welcome/welcome";
 
-import style from "./home.module.css";
-
 export default function Home() {
   const theme = useTheme();
 

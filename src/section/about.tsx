@@ -1,4 +1,4 @@
-import TypeWriter from "../components/Typewritter/TypeWriter";
+import ScrambleText from "../components/Typewritter/scramble_text";
 import Tag from "../components/tag";
 import CategoryButton from "../components/ui/button_category";
 
@@ -36,7 +36,14 @@ export default function About() {
               className="h-20 text-6xl font-black text-transparent bg-linear-to-r from-primary to-white bg-clip-text"
               style={{ textShadow: "0 2px 10px rgba(128, 0, 128, 0.2)" }}
             >
-              <TypeWriter
+              <ScrambleText
+                text="Hello, I'm Adhi"
+                speed={50}
+                wrapper="span"
+                animation="scramble"
+              />
+
+              {/* <TypeWriter
                 sequence={[
                   { text: "Hello, I'm Adhi", waitTime: 3000 },
                   { text: "Web Developer", waitTime: 3000 },
@@ -46,7 +53,7 @@ export default function About() {
                 ]}
                 speed={80}
                 repeat={Infinity}
-              />
+              /> */}
             </h3>
 
             <p

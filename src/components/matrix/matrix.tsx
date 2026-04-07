@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import { useEffect, useRef } from "react";
 
 type MatrixProps = {
@@ -74,7 +73,7 @@ export const Matrix = (props: MatrixProps) => {
 
   return (
     <>
-      <Box sx={props.style}>
+      <div style={props.style}>
         <canvas
           style={{
             position: "absolute",
@@ -83,7 +82,7 @@ export const Matrix = (props: MatrixProps) => {
           ref={canvasEl}
         ></canvas>
         {props.children}
-      </Box>
+      </div>
     </>
   );
 };
