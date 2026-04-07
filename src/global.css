@@ -47,18 +47,16 @@
 }
 
 /* ===== UTILITIES ===== */
-@layer utilities {
-  .scrollbar-custom::-webkit-scrollbar {
-    width: 10px;
-  }
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
 
-  .scrollbar-custom::-webkit-scrollbar-track {
-    @apply bg-gray-100 border border-black;
-  }
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 border border-border;
+}
 
-  .scrollbar-custom::-webkit-scrollbar-thumb {
-    background-color: rgb(var(--color-primary));
-  }
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded;
 }
 
 /* ===== ANIMATION ===== */

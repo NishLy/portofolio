@@ -13,7 +13,7 @@ export default function About() {
           "radial-gradient(circle at 20% 80%, rgba(128, 0, 128, 0.05) 0%, transparent 50%)",
       }}
     >
-      <div className="grid gap-2 md:gap-4 w-full h-full grid-cols-1 md:grid-cols-2">
+      <div className="grid gap-2 md:gap-2 w-full h-full grid-cols-1 md:grid-cols-2">
         <div
           className="relative w-full h-screen overflow-hidden"
           style={{
@@ -27,7 +27,7 @@ export default function About() {
             alt="Adhi - Full Stack Developer"
           />
         </div>
-        <div className="flex items-center justify-center w-full h-screen px-8 md:px-32 animate-fadeInUp md:pr-32 ">
+        <div className="flex items-center justify-center w-full h-screen px-8 md:px-16 animate-fadeInUp md:pr-32 ">
           <div className="flex flex-col gap-4 w-full">
             <div className="animate-fadeIn" style={{ animationDelay: "0.2s" }}>
               <SectionHeader>ABOUT ME</SectionHeader>

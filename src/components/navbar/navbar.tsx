@@ -46,7 +46,7 @@ const Navbar = () => {
       >
         <button
           onClick={handleMenuClick}
-          className="lg:hidden flex flex-col gap-1 p-2"
+          className="lg:hidden flex flex-col gap-1 p-2 cursor-pointer"
           aria-label="Toggle menu"
         >
           <span className="w-6 h-0.5 bg-current"></span>
@@ -56,10 +56,10 @@ const Navbar = () => {
 
         <div
           className={classNames(
-            "lg:flex opacity-100 rounded-2xl w-full text-xl absolute top-full left-0 flex-col items-center gap-4 py-2  lg:static lg:flex-row lg:w-auto lg:bg-transparent lg:gap-16 transition-all duration-300",
+            "lg:flex  rounded-2xl w-full text-xl absolute top-full left-0 flex-col items-center gap-4 py-4 md:py-2  lg:static lg:flex-row lg:w-auto lg:bg-transparent lg:gap-16 transition-all duration-300",
             {
-              "flex opacity-100": menuDropdownOpen,
-              "hidden opacity-0 pointer-events-none": !menuDropdownOpen,
+              "flex ": menuDropdownOpen,
+              "hidden ": !menuDropdownOpen,
             },
           )}
         >
