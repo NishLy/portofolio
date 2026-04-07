@@ -6,6 +6,7 @@ import About from "./section/about";
 import { Matrix } from "./components/matrix/matrix";
 import ScrambleText from "./components/Typewritter/scramble_text";
 import Experiences from "./section/experiences";
+import Contact from "./section/contact";
 
 export default function App() {
   return (
@@ -44,7 +45,7 @@ export default function App() {
             <About />
             <Projects />
             <Experiences />
-            {/* <Contact /> */}
+            <Contact />
           </Background>
         </main>
         <Footer />

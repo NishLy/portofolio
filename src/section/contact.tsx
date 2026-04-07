@@ -1,114 +1,62 @@
 import { EmailRounded } from "@mui/icons-material";
-import {
-  Box,
-  Grid,
-  Stack,
-  Typography,
-  TextField,
-  Button,
-  useTheme,
-} from "@mui/material";
 import SectionHeader from "../components/ui/section_header";
 
 export default function Contact() {
-  const theme = useTheme();
   return (
-    <Box
-      component="section"
-      id="contact"
-      sx={{
-        width: "100vw",
-        // backgroundColor: theme.palette.background.default,
-        color: theme.palette.text.primary,
-      }}
-    >
-      <Grid
-        container
-        padding={theme.spacing(5)}
-        paddingTop={theme.spacing(15)}
-        boxSizing="border-box"
-        alignItems="center"
-        justifyContent="center"
-        direction="row"
-        gap={4}
-        minHeight={"100vh"}
-      >
-        <Grid item xs={12} lg={5}>
-          <Stack
-            spacing={2}
-            width="100%"
-            height="fit-content"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-          >
+    <section id="contact" className="w-screen text-white">
+      <div className="px-32 grid grid-cols-1 lg:grid-cols-2 gap-8 py-20   justify-center">
+        <div className="lg:col-span-1">
+          <div className="flex flex-col gap-2">
             <SectionHeader>CONTACT</SectionHeader>
-            <Typography variant="h2" fontWeight={800}>
-              Get problem to solve?
-            </Typography>
-            <Typography color={theme.palette.text.secondary}>
+            <h2 className="text-3xl font-bold mt-4">Get problem to solve?</h2>
+            <p className="text-gray-400 w-2xl">
               I'd love to hear from you! Please feel free to reach out using the
               form below or by sending an email to
-              <b
-                style={{
-                  color: theme.palette.text.primary,
-                }}
-              >
-                {" "}
-                adhipamungkaswijayadi@gmail.com.
-              </b>
-            </Typography>
-          </Stack>
-        </Grid>
-        <Grid item xs={12} lg={6}>
+              <b className="text-white"> adhipamungkaswijayadi@gmail.com.</b>
+            </p>
+          </div>
+        </div>
+        <div className="lg:col-span-1">
           <form
-            style={{
-              width: "100%",
-            }}
+            className="w-full"
             action="mailto:adhipamungkaswijayadi@gmail.com"
             method="post"
             encType="text/plain"
           >
-            <Stack spacing={5} width="100%">
-              <TextField name="name" label="Name" fullWidth />
-              <TextField name="email" label="Email" fullWidth />
-              <TextField
-                name="message"
-                label="Message"
-                fullWidth
-                multiline
-                rows={2}
+            <div className="flex flex-col gap-5">
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded"
               />
-              <Stack
-                flexWrap="wrap"
-                direction="row"
-                gap={2}
-                justifyContent="space-between"
-              >
-                <Stack
-                  direction="row"
-                  gap={1}
-                  sx={{
-                    wordBreak: "break-word",
-                  }}
-                >
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded"
+              />
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows={2}
+                className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded"
+              />
+              <div className="flex flex-wrap gap-2 justify-between">
+                <div className="flex gap-1 break-words">
                   <EmailRounded /> adhipamungkaswijayadi@gmail.com
-                </Stack>
-                <Button
+                </div>
+                <button
                   type="submit"
-                  sx={{
-                    padding: theme.spacing(1),
-                    backgroundColor: "var(--accent-color)",
-                    color: "white",
-                  }}
-                  variant="contained"
+                  className="px-4 py-2 bg-[var(--accent-color)] text-white rounded font-semibold hover:opacity-90"
                 >
                   Contact me
-                </Button>
-              </Stack>
-            </Stack>
+                </button>
+              </div>
+            </div>
           </form>
-        </Grid>
-      </Grid>
-    </Box>
+        </div>
+      </div>
+    </section>
   );
 }
