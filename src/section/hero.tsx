@@ -13,6 +13,19 @@ const Hero = () => {
           animation="scramble"
         />
       </h1>
+      <button
+        className="mt-8 px-8 py-3 bg-primary/50 cursor-pointer text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+        onClick={() => {
+          const link = document.createElement("a");
+          link.href = "/data/resume.pdf";
+          link.download = "Adhi_Pamungkas_Wijayadi_Resume.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }}
+      >
+        Download CV
+      </button>
     </section>
   );
 };
