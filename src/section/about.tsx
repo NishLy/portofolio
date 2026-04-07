@@ -22,7 +22,7 @@ export default function About() {
           }}
         >
           <img
-            src="./images/me.jpg"
+            src="./images/me.webp"
             className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
             alt="Adhi - Full Stack Developer"
           />

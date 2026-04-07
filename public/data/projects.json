@@ -13,7 +13,7 @@
             "redux"
         ],
         "date": "2025-10-06T08:21:04+00:00",
-        "thumbnail": "./images/smartmap.png",
+        "thumbnail": "./images/smartmap.webp",
         "title": "SmartMap",
         "description": "A Multi tenant web application for managing and visualizing product distribution data. Built with Next.js, React, Tailwind CSS, Fiber, Golang, and PostgreSQL, it provides a modern and responsive interface for users to analyze and optimize their distribution networks effectively."
     },
@@ -24,7 +24,7 @@
             "tailwind"
         ],
         "date": "2025-09-10T08:21:04+00:00",
-        "thumbnail": "./images/landing_page_bandulan.png",
+        "thumbnail": "./images/landing_page_bandulan.webp",
         "title": "Bandulan Landing Page",
         "deployed_link": "https://bandulan.com/",
         "description": "A landing page for Bandulan, a distribution company. Built with Next.js, React, and Tailwind CSS, it features a modern design and responsive layout to showcase the company's services and products effectively."
@@ -37,7 +37,7 @@
             "tailwind"
         ],
         "date": "2023-12-06T08:21:04+00:00",
-        "thumbnail": "./images/portofolio.png",
+        "thumbnail": "./images/portofolio.webp",
         "description": "A personal portfolio website built with React, Tailwind CSS, and Vite. It features a clean and modern design to showcase projects, skills, and experience effectively.",
         "title": "Portofolio",
         "source_code_link": "https://github.com/adhipaw/portofolio",
@@ -49,7 +49,7 @@
             "firebase"
         ],
         "date": "2025-01-06T08:21:04+00:00",
-        "thumbnail": "./images/sfa_bandulan.png",
+        "thumbnail": "./images/sfa_bandulan.webp",
         "title": "Sales Force Automation (Bandulan)",
         "description": "A mobile application for Bandulan's sales force automation, built with Flutter and Firebase. It provides features for managing sales activities, tracking customer interactions, and improving overall sales efficiency."
     },
@@ -65,7 +65,7 @@
             "postgresql"
         ],
         "date": "2024-12-06T08:21:04+00:00",
-        "thumbnail": "./images/dms_bandulan.png",
+        "thumbnail": "./images/dms_bandulan.webp",
         "title": "Distribution Management System (Bandulan)",
         "description": "A landing page for Bandulan, a distribution company. Built with Next.js, React, and Tailwind CSS, it features a modern design and responsive layout to showcase the company's services and products effectively."
     },
@@ -75,7 +75,7 @@
             "bootstrap"
         ],
         "date": "2024-05-06T08:21:04+00:00",
-        "thumbnail": "./images/bni.jpg",
+        "thumbnail": "./images/bni.webp",
         "title": "IDEABOX BNI",
         "description": "A platform for BNI's IDEABOX program, built with jQuery and Bootstrap. It provides a user-friendly interface for submitting and managing ideas, fostering innovation within the organization."
     },
@@ -85,7 +85,7 @@
             "bootstrap"
         ],
         "date": "2024-05-06T08:21:04+00:00",
-        "thumbnail": "./images/mandiri.jpg",
+        "thumbnail": "./images/mandiri.webp",
         "title": "IDEABOX MANDIRI (MIX PITCH)",
         "description": "A platform for Mandiri's IDEABOX program, built with jQuery and Bootstrap. It provides a user-friendly interface for submitting and managing ideas, fostering innovation within the organization."
     },
@@ -99,7 +99,7 @@
             "postgresql"
         ],
         "date": "2023-05-06T08:21:04+00:00",
-        "thumbnail": "./images/pskuy.png",
+        "thumbnail": "./images/pskuy.webp",
         "title": "Pskuy",
         "source_code_link": "https://github.com/NishLy/pskuy",
         "description": "A Web application for allowing gamers to find the best place for renting console games. Built with Next.js, React, and tRPC, it features a modern design and responsive layout to provide users with an easy way to find and rent console games."
@@ -109,7 +109,7 @@
             "react"
         ],
         "date": "2022-06-06T08:21:04+0000",
-        "thumbnail": "./images/periodicTable.png",
+        "thumbnail": "./images/periodicTable.webp",
         "title": "Periodic Table",
         "source_code_link": "https://github.com/NishLy/periodicTable",
         "description": "A simple periodic table application built with JavaScript. It provides an interactive interface for users to explore the elements, their properties, and their relationships in the periodic table."

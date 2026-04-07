@@ -1,4 +1,6 @@
-import { GitHub, LinkedIn, Instagram } from "@mui/icons-material";
+import { FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -6,7 +8,7 @@ export default function Footer() {
       id="footer"
       className="w-full bg-linear-to-b from-transparent to-background text-white flex flex-col justify-center items-center p-20 box-border gap-1"
     >
-      <img src="/images/logo.png" alt="" className="w-40 h-auto mb-4" />
+      <img src="/images/logo.webp" alt="" className="w-40 h-auto mb-4" />
       {/* <img src="http://ghchart.rshah.org/Nishly" alt="Nishly Contribution" /> */}
       <hr
         className="mt-4 h-px border-none w-11/12"
@@ -47,7 +49,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="p-3 cursor-pointer"
         >
-          <GitHub />
+          <FaGithub size={24} />
         </a>
         <a
           title="Linkedin"
@@ -56,7 +58,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="p-3 cursor-pointer"
         >
-          <LinkedIn />
+          <FaLinkedin size={24} />
         </a>
         <a
           title="Instagram"
@@ -65,7 +67,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="p-3 cursor-pointer"
         >
-          <Instagram />
+          <FaInstagram size={24} />
         </a>
       </div>
       <p className="uppercase text-sm tracking-widest">
