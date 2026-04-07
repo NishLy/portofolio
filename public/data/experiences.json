@@ -1,0 +1,23 @@
+[
+    {
+        "company": "SmartMap",
+        "position": "Full Stack Developer",
+        "duration": "Sep 2025 - Present",
+        "location": "Solo, Indonesia",
+        "description": "Developed an interactive mapping application to visualize product distribution across multiple regions. Integrated the system with an existing POS application to provide a connected and seamless experience. Built the backend with Golang Fiber, achieving high performance through optimized caching and efficient data handling. Utilized Mapbox Vector Tiles (MVT) to efficiently render large-scale geographic data. Designed and implemented modern, responsive UIs using Next.js and Tailwind CSS for an engaging user experience."
+    },
+    {
+        "company": "CV Budi Djaja (Teh Bandulan)",
+        "position": "Full Stack Developer",
+        "duration": "Nov 2024 - Dec 2025",
+        "location": "Pekalongan, Indonesia",
+        "description": "Designed and implemented backend features tailored to user requirements, improving system efficiency and directly supporting increased company sales performance. Optimized core modules of the Distribution Management System, reducing processing time and enhancing reliability. Led a complete UI/UX revamp of the Sales Force Automation (SFA) app, improving user adoption and satisfaction. Developed a Marketing Analytics dashboard using Python and Streamlit for real-time performance insights. Collaborated with cross-functional teams to deliver integrated and timely system updates."
+    },
+    {
+        "company": "Telkom Indonesia",
+        "position": "Intern Frontend Developer",
+        "duration": "Feb 2024 - Jun 2024",
+        "location": "Bandung, Indonesia",
+        "description": "Fixed bugs and enhanced features for BNI and Mandiri Ideabox websites using CodeIgniter 3, improving stability and functionality. Updated budgeting and monitoring (Monev) modules on the Mandiri AMD website with CodeIgniter 4, ensuring smoother operations and feature improvements. Revamped UI and optimized features of the Handover website module using ReactJS, delivering a more modern and user-friendly experience. Collaborated within cross-functional teams and adapted quickly to new environments to ensure successful project delivery."
+    }
+]

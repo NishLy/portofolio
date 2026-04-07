@@ -16,7 +16,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <div
       key={index}
-      className="bg-surface/10 h-fit backdrop-blur-2xl rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 shadow-primary/20 border border-border/70 hover:shadow-primary/40 hover:border-border/50"
+      className="bg-surface/10 h-fit backdrop-blur-sm rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 shadow-primary/20 border border-border/70 hover:shadow-primary/40 hover:border-border/50"
     >
       <div className="relative">
         <img
