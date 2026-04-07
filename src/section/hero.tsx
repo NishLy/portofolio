@@ -11,7 +11,6 @@ const Hero = () => {
           text="Welcome to My Portfolio"
           speed={100}
           animation="scramble"
-          wrapper="div"
         />
       </h1>
     </section>

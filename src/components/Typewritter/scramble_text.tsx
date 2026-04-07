@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface ScrambleTextProps {
   text: string;
   speed?: number;
   animation: "scramble" | "typewriter";
-  wrapper?: "div" | "span";
+  revealOnView?: boolean;
 }
 
 const defultLetters = "!@#$%^&*()_+-=[]{}|;:',.<>?/~`".split("");
@@ -32,16 +32,19 @@ const scrambleCharacter = (
 };
 
 const ScrambleText = (
-  { text, speed, animation, wrapper }: ScrambleTextProps = {
+  { text, speed, animation, revealOnView }: ScrambleTextProps = {
     animation: "typewriter",
     text: "",
   },
 ) => {
   const [displayedText, setDisplayedText] = useState<string>("");
+  const [shouldReveal, setShouldReveal] = useState<boolean>(!revealOnView);
   const [index, setIndex] = useState<number>(0);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (animation !== "typewriter") return;
+    if (!shouldReveal) return;
     if (index >= text.length) return;
 
     scrambleCharacter(
@@ -64,10 +67,11 @@ const ScrambleText = (
     }, waitTime);
 
     return () => clearTimeout(timeout);
-  }, [index, text, speed, animation]);
+  }, [index, text, speed, animation, shouldReveal]);
 
   useEffect(() => {
     if (animation !== "scramble") return;
+    if (!shouldReveal) return;
 
     // 1. Setup tracking
     const settledArray = new Array(text.length).fill(false);
@@ -129,13 +133,28 @@ const ScrambleText = (
     );
 
     return () => clearInterval(interval);
-  }, [text, speed, animation]);
+  }, [text, speed, animation, shouldReveal]);
 
-  return wrapper === "span" ? (
-    <span>{displayedText}</span>
-  ) : (
-    <div>{displayedText}</div>
-  );
+  useEffect(() => {
+    if (!revealOnView || shouldReveal) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setShouldReveal(true);
+          observer.disconnect();
+        }
+      });
+    });
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [revealOnView]);
+
+  return <div ref={ref}>{displayedText}</div>;
 };
 
 export default ScrambleText;

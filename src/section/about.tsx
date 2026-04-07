@@ -39,8 +39,8 @@ export default function About() {
               <ScrambleText
                 text="Hello, I'm Adhi"
                 speed={50}
-                wrapper="span"
                 animation="scramble"
+                revealOnView={true}
               />
             </h3>
             <h2 className="text-2xl md:text-4xl font-bold text-white h-10">
