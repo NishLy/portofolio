@@ -13,7 +13,7 @@ export default function About() {
           "radial-gradient(circle at 20% 80%, rgba(128, 0, 128, 0.05) 0%, transparent 50%)",
       }}
     >
-      <div className="grid w-full h-full grid-cols-1 md:grid-cols-2">
+      <div className="grid gap-10 w-full h-full grid-cols-1 md:grid-cols-2">
         <div
           className="relative w-full h-screen overflow-hidden"
           style={{

@@ -56,7 +56,7 @@ const Navbar = () => {
 
         <div
           className={classNames(
-            "lg:flex rounded-2xl w-full text-xl absolute top-full left-0 flex-col items-center gap-4 py-2 bg-surface/50 backdrop-blur-2xl lg:static lg:flex-row lg:w-auto lg:bg-transparent lg:gap-16 transition-all duration-300",
+            "lg:flex rounded-2xl w-full text-xl absolute top-full left-0 flex-col items-center gap-4 py-2  lg:static lg:flex-row lg:w-auto lg:bg-transparent lg:gap-16 transition-all duration-300",
             {
               flex: menuDropdownOpen,
               hidden: !menuDropdownOpen,
