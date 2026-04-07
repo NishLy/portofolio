@@ -30,7 +30,7 @@ export default function Experiences() {
   return (
     <div
       id="projects"
-      className="w-screen text-primary text-center flex flex-col items-center px-32  gap-10 py-20 "
+      className="w-screen text-primary text-center flex flex-col items-center px-8 md:px-32  gap-10 py-20 "
     >
       <SectionHeader>EXPERIENCES</SectionHeader>
       <div className="flex flex-col gap-6 w-full">

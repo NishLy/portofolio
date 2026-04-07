@@ -39,10 +39,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-screen px-32 py-8 z-50 box-border">
+    <header className="fixed top-0 left-0 w-screen px-8 md:px-32 py-8 z-50 box-border">
       <nav
         ref={navbarEl}
-        className="w-full h-fit flex flex-row justify-between items-center rounded-lg py-2 px-6 transition-all duration-300"
+        className="w-full h-fit flex flex-row justify-between items-center rounded-lg py-2 px-2 md:px-6 transition-all duration-300"
       >
         <button
           onClick={handleMenuClick}
@@ -58,8 +58,8 @@ const Navbar = () => {
           className={classNames(
             "lg:flex rounded-2xl w-full text-xl absolute top-full left-0 flex-col items-center gap-4 py-2  lg:static lg:flex-row lg:w-auto lg:bg-transparent lg:gap-16 transition-all duration-300",
             {
-              flex: menuDropdownOpen,
-              hidden: !menuDropdownOpen,
+              "flex opacity-100": menuDropdownOpen,
+              "hidden opacity-0 pointer-events-none": !menuDropdownOpen,
             },
           )}
         >
@@ -80,6 +80,12 @@ const Navbar = () => {
             className="no-underline text-inherit hover:opacity-75 transition-opacity"
           >
             Projects
+          </a>
+          <a
+            href="/#experiences"
+            className="no-underline text-inherit hover:opacity-75 transition-opacity"
+          >
+            Experiences
           </a>
           <a
             href="/#contact"

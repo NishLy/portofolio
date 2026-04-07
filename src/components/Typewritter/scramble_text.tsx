@@ -7,10 +7,7 @@ interface ScrambleTextProps {
   wrapper?: "div" | "span";
 }
 
-const defultLetters =
-  "ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZいうえおくきこけすしせそちつてとにぬねのひふへほみむめもゆよりるれろأىورزدذطظءةكمنتالبيسشجحخهعغفقثصضアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤイユエヨラリルレロワイウエヲ".split(
-    "",
-  );
+const defultLetters = "!@#$%^&*()_+-=[]{}|;:',.<>?/~`".split("");
 
 const scrambleCharacter = (
   c: string,

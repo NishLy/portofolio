@@ -39,11 +39,11 @@ export default function Projects() {
   return (
     <div
       id="projects"
-      className="w-screen min-h-screen text-primary text-center flex flex-col items-center px-32  gap-10 py-20 "
+      className="w-screen min-h-screen text-primary text-center flex flex-col items-center px-8 md:px-32 gap-10 py-20 "
     >
       <SectionHeader>PROJECTS</SectionHeader>
 
-      <div className="flex flex-wrap gap-3 justify-start mb-10 w-full">
+      <div className="flex flex-wrap gap-2 justify-start  w-full">
         {availableCategories.map((category) => (
           <CategoryButton
             key={category}
