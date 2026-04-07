@@ -1,6 +1,6 @@
 // import Coursel from "../components/Coursel/Coursel";
 import { useEffect, useState } from "react";
-import Tag from "../components/tag";
+import SectionHeader from "../components/ui/section_header";
 import ProjectCard, { Project } from "../components/ui/project_card";
 import CategoryButton from "../components/ui/button_category";
 
@@ -41,7 +41,7 @@ export default function Projects() {
       id="projects"
       className="w-screen min-h-screen text-primary text-center flex flex-col items-center px-32  gap-10 py-20 "
     >
-      <Tag>PROJECTS</Tag>
+      <SectionHeader>PROJECTS</SectionHeader>
 
       <div className="flex flex-wrap gap-3 justify-start mb-10 w-full">
         {availableCategories.map((category) => (

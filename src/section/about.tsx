@@ -1,12 +1,13 @@
 import ScrambleText from "../components/Typewritter/scramble_text";
-import Tag from "../components/tag";
+import SectionHeader from "../components/ui/section_header";
 import CategoryButton from "../components/ui/button_category";
+import TypeWriter from "../components/Typewritter/TypeWriter";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="relative w-screen overflow-hidden border-b border-border border-opacity-30"
+      className="relative w-screen overflow-hidden border-b  border-border border-opacity-30"
       style={{
         background:
           "radial-gradient(circle at 20% 80%, rgba(128, 0, 128, 0.05) 0%, transparent 50%)",
@@ -26,14 +27,14 @@ export default function About() {
             alt="Adhi - Full Stack Developer"
           />
         </div>
-        <div className="flex items-center justify-center w-full h-screen px-3 md:px-5 animate-fadeInUp md:pr-32">
+        <div className="flex items-center justify-center w-full h-screen px-3 md:px-5 animate-fadeInUp md:pr-32 ">
           <div className="flex flex-col gap-4 w-full">
             <div className="animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-              <Tag>ABOUT ME</Tag>
+              <SectionHeader>ABOUT ME</SectionHeader>
             </div>
 
             <h3
-              className="h-20 text-6xl font-black text-transparent bg-linear-to-r from-primary to-white bg-clip-text"
+              className="text-6xl font-black text-transparent bg-linear-to-r from-primary to-white bg-clip-text"
               style={{ textShadow: "0 2px 10px rgba(128, 0, 128, 0.2)" }}
             >
               <ScrambleText
@@ -42,10 +43,10 @@ export default function About() {
                 wrapper="span"
                 animation="scramble"
               />
-
-              {/* <TypeWriter
+            </h3>
+            <h2 className="text-4xl font-bold text-white h-10">
+              <TypeWriter
                 sequence={[
-                  { text: "Hello, I'm Adhi", waitTime: 3000 },
                   { text: "Web Developer", waitTime: 3000 },
                   { text: "Flutter Developer", waitTime: 3000 },
                   { text: "Full-Stack Engineer", waitTime: 3000 },
@@ -53,8 +54,8 @@ export default function About() {
                 ]}
                 speed={80}
                 repeat={Infinity}
-              /> */}
-            </h3>
+              />
+            </h2>
 
             <p
               className="relative pl-5 text-base leading-relaxed text-gray-400 text-justify md:text-lg"

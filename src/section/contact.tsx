@@ -8,7 +8,7 @@ import {
   Button,
   useTheme,
 } from "@mui/material";
-import Tag from "../components/tag";
+import SectionHeader from "../components/ui/section_header";
 
 export default function Contact() {
   const theme = useTheme();
@@ -41,7 +41,7 @@ export default function Contact() {
             justifyContent="flex-start"
             alignItems="flex-start"
           >
-            <Tag>CONTACT</Tag>
+            <SectionHeader>CONTACT</SectionHeader>
             <Typography variant="h2" fontWeight={800}>
               Get problem to solve?
             </Typography>

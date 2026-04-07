@@ -1,6 +1,6 @@
 import { Stack, Typography, Button, useTheme } from "@mui/material";
 import { Matrix } from "../components/matrix/matrix";
-import Tag from "../components/tag";
+import SectionHeader from "../components/ui/section_header";
 
 export default function SourceCode() {
   const theme = useTheme();
@@ -27,7 +27,7 @@ export default function SourceCode() {
             "radial-gradient(circle, rgba(6,9,24,.1) 5%, rgba(6,9,24,1) 70%)",
         }}
       >
-        <Tag>SOURCE CODE</Tag>
+        <SectionHeader>SOURCE CODE</SectionHeader>
         <Typography
           variant="h3"
           textAlign={"center"}
